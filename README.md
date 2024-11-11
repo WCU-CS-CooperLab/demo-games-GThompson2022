@@ -12,5 +12,4 @@ A template repository to publish games
 2. [Project_Phase_1_2](Project_Phase_1_2/index.html)
 
 ## Group Project 1
-1. [Player Scene](Key_Quest/index.html)
-
+1. [Player_Scene](Key_Quest/index.html)
