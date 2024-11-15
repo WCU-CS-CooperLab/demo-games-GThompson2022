@@ -1,0 +1,84 @@
+[gd_scene load_steps=12 format=3 uid="uid://cocddjyd8s05w"]
+
+[ext_resource type="Texture2D" uid="uid://dt4e6e0rruu4h" path="res://Tiny Swords/Tiny Swords (Update 010)/Effects/Fire/Fire.png" id="1_0pas3"]
+[ext_resource type="Script" path="res://enemy.gd" id="1_ac124"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wkfi6"]
+atlas = ExtResource("1_0pas3")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_752s5"]
+atlas = ExtResource("1_0pas3")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dt077"]
+atlas = ExtResource("1_0pas3")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_il5ac"]
+atlas = ExtResource("1_0pas3")
+region = Rect2(384, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pwslf"]
+atlas = ExtResource("1_0pas3")
+region = Rect2(512, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_svy8b"]
+atlas = ExtResource("1_0pas3")
+region = Rect2(640, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q7tpa"]
+atlas = ExtResource("1_0pas3")
+region = Rect2(768, 0, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_y4kgm"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wkfi6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_752s5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dt077")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_il5ac")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pwslf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_svy8b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q7tpa")
+}],
+"loop": true,
+"name": &"enemy",
+"speed": 8.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bpx1l"]
+size = Vector2(60, 51)
+
+[node name="Enemy" type="Area2D" groups=["enemy"]]
+z_index = 4
+scale = Vector2(0.5, 0.5)
+script = ExtResource("1_ac124")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_y4kgm")
+animation = &"enemy"
+autoplay = "enemy"
+frame = 3
+frame_progress = 0.200398
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["enemy"]]
+position = Vector2(0, 15.5)
+shape = SubResource("RectangleShape2D_bpx1l")
+
+[node name="EnemyTimer" type="Timer" parent="."]
+
+[connection signal="timeout" from="EnemyTimer" to="." method="_on_enemy_timer_timeout"]
