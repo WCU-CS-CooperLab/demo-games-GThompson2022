@@ -4,6 +4,7 @@ extends Node
 @export var powerup_scene : PackedScene
 @export var enemy_scene : PackedScene
 @export var goblin_scene : PackedScene
+@export var mushroom_scene : PackedScene
 @export var playtime = 30
 
 var level = 1
@@ -22,6 +23,7 @@ func _ready():
 	$Player2.screensize = screensize
 	$Player.hide()
 	$Player2.hide()
+
 
 func new_game():
 	playing = true
@@ -71,7 +73,12 @@ func spawn_goblin():
 		g.screensize = screensize
 		g.position = Vector2(randi_range(0, screensize.x), randi_range(0, screensize.y))
 
-
+func spawn_mushroom():
+	for i in level + 1:
+		var m = mushroom_scene.instantiate()
+		add_child(m)
+		m.screensize = screensize
+		m.position = Vector2(randi_range(0, screensize.x), randi_range(0, screensize.y))
 
 func update_scores():
 	$HUD.update_score_player1(ScorePlayer1)
@@ -85,9 +92,11 @@ func _process(delta):
 		get_tree().call_group("goblin", "queue_free")
 		get_tree().call_group("enemy", "queue_free")
 		get_tree().call_group("powerups", "queue_free")
+		get_tree().call_group("mushroom", "queue_free")
 		spawn_goblin()
 		spawn_enemy()
 		spawn_powerups()
+		spawn_mushroom()
 
 func _on_game_timer_timeout():
 	time_left -= 1
@@ -99,7 +108,6 @@ func _on_player_hurt():
 	player1_alive = false
 	check_game_over()
 
-
 func _on_player_pickup(type):
 	match type:
 		"coin":
@@ -108,6 +116,9 @@ func _on_player_pickup(type):
 		"powerup":
 			$Powerup.play()
 			time_left += 5
+		"mushroom":
+			$Powerup.play()
+			
 	update_scores()
 
 func _on_player_2_pickup(type):
@@ -118,7 +129,10 @@ func _on_player_2_pickup(type):
 		"powerup":
 			$Powerup.play()
 			time_left += 5
+		"mushroom":
+			$Powerup.play()
 	update_scores()
+
 
 func _on_player_2_hurt():
 	player2_alive = false
@@ -134,6 +148,7 @@ func game_over():
 	$GameTimer.stop()
 	get_tree().call_group("coins", "queue_free")
 	get_tree().call_group("powerups", "queue_free")
+	get_tree().call_group("mushroom", "queue_free")
 	get_tree().call_group("enemy", "queue_free")
 	get_tree().call_group("goblin", "queue_free")
 
@@ -159,3 +174,9 @@ func _on_powerup_timer_timeout():
 	add_child(p)
 	p.screensize = screensize
 	p.position = Vector2(randi_range(0, screensize.x), randi_range(0, screensize.y))
+	
+func _on_mushroom_timer_timeout():
+	var m = mushroom_scene.instantiate()
+	add_child(m)
+	m.screensize = screensize
+	m.position = Vector2(randi_range(0, screensize.x), randi_range(0, screensize.y))

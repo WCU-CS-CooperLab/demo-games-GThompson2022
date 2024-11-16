@@ -3,6 +3,8 @@ extends Area2D
 signal pickup
 signal hurt
 
+var normal_speed = 350  # Set to your normal speed
+var boosted_speed = 500  # Set the boosted speed
 @export var speed = 350
 var velocity = Vector2.ZERO
 var screensize = Vector2(480, 720)
@@ -65,6 +67,13 @@ func _on_area_entered(area):
 	elif area.is_in_group("powerups"):
 		area.pickup()
 		pickup.emit("powerup")
+	elif area.is_in_group("mushroom"):
+		area.pickup()  # This assumes the mushroom has a pickup method
+		pickup.emit("mushroom")
+		apply_speed_boost()
+
+func apply_speed_boost():
+	speed = boosted_speed  # Set the player's speed to boosted speed
 
 func become_invincible():
 	is_invincible = true

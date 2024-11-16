@@ -1,0 +1,61 @@
+[gd_scene load_steps=10 format=3 uid="uid://c5xrh0mfh505a"]
+
+[ext_resource type="Script" path="res://mushroom.gd" id="1_6ahc8"]
+[ext_resource type="Texture2D" uid="uid://3gna5lv6f0of" path="res://Tiny Swords/Tiny Swords (Update 010)/Deco/01.png" id="2_3dluq"]
+[ext_resource type="Texture2D" uid="uid://cjmc23rmw8xv4" path="res://Tiny Swords/Tiny Swords (Update 010)/Deco/02.png" id="3_qq7ed"]
+[ext_resource type="Texture2D" uid="uid://vrwumov5ltj" path="res://Tiny Swords/Tiny Swords (Update 010)/Deco/03.png" id="4_fv1fl"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ecx30"]
+atlas = ExtResource("2_3dluq")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kbyy6"]
+atlas = ExtResource("3_qq7ed")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jysuy"]
+atlas = ExtResource("4_fv1fl")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3xd5j"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ecx30")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kbyy6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jysuy")
+}],
+"loop": true,
+"name": &"new_animation",
+"speed": 2.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_nu51f"]
+radius = 9.0
+
+[node name="mushroom" type="Area2D" groups=["mushroom"]]
+scale = Vector2(2, 2)
+script = ExtResource("1_6ahc8")
+metadata/_edit_group_ = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.4, 0.4)
+sprite_frames = SubResource("SpriteFrames_3xd5j")
+animation = &"new_animation"
+autoplay = "new_animation"
+frame_progress = 0.730171
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_nu51f")
+
+[node name="Lifetime" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+autostart = true
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="timeout" from="Lifetime" to="." method="_on_lifetime_timeout"]
