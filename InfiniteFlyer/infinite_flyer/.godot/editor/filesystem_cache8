@@ -1,0 +1,58 @@
+ea4bc82a6ad023ab7ee23ee620429895
+::res://::1731638733
+Camera3D.gd::GDScript::-1::1731637833::0::1::::<>Camera3D<>::
+chunk.gd::GDScript::-1::1731637833::0::1::::<>Node3D<>::
+chunk.tscn::PackedScene::5875043159444078814::1731637833::0::1::::<><>::res://chunk.gd<>uid://m6dekirp713x::::res://assets/textures/texture_01.png
+export_presets.cfg::TextFile::-1::1731638424::0::1::::<><>::
+global.gd::GDScript::-1::1731637833::0::1::::<>Node<>::
+icon.svg::CompressedTexture2D::291858682132349653::1731637833::1731638079::1::::<><>::
+Infinite Flyer.apple-touch-icon.png::CompressedTexture2D::3941485724052107793::1731638424::1731638426::1::::<><>::
+Infinite Flyer.icon.png::CompressedTexture2D::4497532472306967921::1731638424::1731638426::1::::<><>::
+Infinite Flyer.png::CompressedTexture2D::6941649276339079620::1731638424::1731638426::1::::<><>::
+main.gd::GDScript::-1::1731637833::0::1::::<>Node3D<>::
+main.tscn::PackedScene::3172742732259178213::1731637833::0::1::::<><>::uid://ddutf7nnbm571::::res://assets/styled_sky.hdr<>res://main.gd<>uid://ccni3hfc3p863::::res://plane.tscn<>uid://cpx6dqp6yhxqk::::res://chunk.tscn<>res://Camera3D.gd<>uid://dxeb65qfn8di::::res://ui.tscn<>uid://dr70o3k2ejsii::::res://assets/audio/Riverside Ride Short Loop.wav
+plane.gd::GDScript::-1::1731637833::0::1::::<>CharacterBody3D<>::
+plane.tscn::PackedScene::4940592079152902902::1731637833::0::1::::<><>::res://plane.gd<>uid://twdhn75l1clu::::res://assets/cartoon_plane.glb<>uid://dsaut3spfwya7::::res://assets/smoke/smoke_01.png<>uid://chnwk3hw8u6px::::res://assets/smoke/smoke_02.png<>uid://p0mw3cnb8oka::::res://assets/smoke/smoke_03.png<>uid://dgpu2s6ukx823::::res://assets/smoke/smoke_04.png<>uid://cig71vh1gvcim::::res://assets/smoke/smoke_05.png<>uid://6kfqbxxw2471::::res://assets/audio/impact.wav
+ring.gd::GDScript::-1::1731637833::0::1::::<>Area3D<>::
+ring.tscn::PackedScene::7227246864538391967::1731637833::0::1::::<><>::res://ring.gd<>uid://dxin0p3ks3pe7::::res://assets/textures/texture_09.png<>uid://dwe354n1kha7i::::res://assets/Baloo2-Medium.ttf<>uid://c6uem1m2f3nv4::::res://assets/audio/three_tone.wav
+test_scene.tscn::PackedScene::8121897725006617896::1731637833::0::1::::<><>::uid://cpx6dqp6yhxqk::::res://chunk.tscn<>uid://ccni3hfc3p863::::res://plane.tscn<>uid://ddutf7nnbm571::::res://assets/styled_sky.hdr<>res://Camera3D.gd
+title_screen.gd::GDScript::-1::1731637833::0::1::::<>Control<>::
+title_screen.tscn::PackedScene::5808402620406674501::1731638086::0::1::::<><>::res://title_screen.gd<>uid://dn6aqj5abxk70::::res://assets/styled_sky.hdr<>uid://c5s12qnopne4l::::res://assets/buttons/play_button.png<>uid://b3vkbqv2odcw7::::res://assets/buttons/play_button_pr.png<>uid://bbufg5c378337::::res://assets/buttons/play_button_h.png<>uid://dwe354n1kha7i::::res://assets/Baloo2-Medium.ttf
+ui.gd::GDScript::-1::1731637833::0::1::::<>CanvasLayer<>::
+ui.tscn::PackedScene::258293548324627370::1731637833::0::1::::<><>::uid://cv1d6a4ud05wh::::res://assets/bar_glass.png<>res://ui.gd<>uid://dwe354n1kha7i::::res://assets/Baloo2-Medium.ttf<>uid://bfys6mheanew::::res://assets/bar_red.png
+::res://assets/::1731638422
+Baloo2-Medium.ttf::FontFile::8713429316201434784::1731637833::1731638079::1::::<><>::
+bar_glass.png::CompressedTexture2D::6300718461692851107::1731637833::1731638079::1::::<><>::
+bar_red.png::CompressedTexture2D::82001731609930482::1731637833::1731638079::1::::<><>::
+cartoon_plane.glb::PackedScene::1379199724863644242::1731637833::1731638082::1::::<><>::
+styled_sky.hdr::CompressedTexture2D::8135741820508592329::1731637833::1731638422::1::::<><>::
+::res://assets/audio/::1731638081
+impact.wav::AudioStreamWAV::2196830177115274022::1731637833::1731638081::1::::<><>::
+Riverside Ride Short Loop.wav::AudioStreamWAV::8420076894323921480::1731637833::1731638081::1::::<><>::
+three_tone.wav::AudioStreamWAV::6990248758123637291::1731637833::1731638081::1::::<><>::
+::res://assets/building_meshes/::1731638082
+Build_01.obj::Mesh::3414132190558660606::1731637834::1731638082::1::::<><>::
+Build_02.obj::Mesh::3917850071719215626::1731637834::1731638081::1::::<><>::
+Build_03.obj::Mesh::5267802249839374701::1731637834::1731638081::1::::<><>::
+Build_04.obj::Mesh::3207521780196362678::1731637834::1731638081::1::::<><>::
+Build_05.obj::Mesh::5477499127906510866::1731637834::1731638081::1::::<><>::
+::res://assets/buttons/::1731638079
+play_button.png::CompressedTexture2D::6917293195460327117::1731637834::1731638079::1::::<><>::
+play_button_h.png::CompressedTexture2D::2498212962245988816::1731637834::1731638079::1::::<><>::
+play_button_pr.png::CompressedTexture2D::4395670068174913836::1731637834::1731638079::1::::<><>::
+::res://assets/smoke/::1731638079
+smoke_01.png::CompressedTexture2D::8423911005652797408::1731637834::1731638079::1::::<><>::
+smoke_02.png::CompressedTexture2D::5292355297947052865::1731637834::1731638079::1::::<><>::
+smoke_03.png::CompressedTexture2D::1105211464137808708::1731637834::1731638079::1::::<><>::
+smoke_04.png::CompressedTexture2D::7612624329741409998::1731637834::1731638079::1::::<><>::
+smoke_05.png::CompressedTexture2D::5348728872419024940::1731637834::1731638079::1::::<><>::
+::res://assets/textures/::1731638079
+texture_01.png::CompressedTexture2D::906451666571833415::1731637834::1731638079::1::::<><>::
+texture_09.png::CompressedTexture2D::8790955274124414756::1731637834::1731638079::1::::<><>::
+::res://buildings/::1731637834
+building_1.tscn::PackedScene::7017376071917282111::1731637834::0::1::::<><>::uid://bov3i1w438g83::::res://assets/building_meshes/Build_01.obj
+building_2.tscn::PackedScene::-1::1731637834::0::1::::<><>::uid://bv23ohr6qro6m::::res://assets/building_meshes/Build_02.obj
+building_3.tscn::PackedScene::-1::1731637834::0::1::::<><>::uid://chb060bd3j7jt::::res://assets/building_meshes/Build_03.obj
+building_4.tscn::PackedScene::-1::1731637834::0::1::::<><>::uid://blx0od35paqcc::::res://assets/building_meshes/Build_04.obj
+building_5.tscn::PackedScene::-1::1731637834::0::1::::<><>::uid://ckblu0t0mleak::::res://assets/building_meshes/Build_05.obj
+chunk.gd::GDScript::-1::1731637834::0::1::::<>Node3D<>::

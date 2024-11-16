@@ -1,0 +1,9 @@
+res://bullet.tscn::d86be9eb8b8fbe3e335db5c4fe6bd633::1731637831::res://.godot/exported/133200997/export-6350fccf6e14d2f0c891730ee1d2c6cd-bullet.scn
+res://enemy.tscn::ebfb7382c760b26299438bd967b23d6b::1731637831::res://.godot/exported/133200997/export-ec12bd2205a8e44213188668d747d7fa-enemy.scn
+res://enemy_bullet.tscn::9bb95a992c7b7945bbe9641d0a5cf7b7::1731637831::res://.godot/exported/133200997/export-3b92cad3021407f7a716f5c1b41f5a2a-enemy_bullet.scn
+res://enemy_paths.tscn::4518818f063b970687bbca608ef00f5f::1731637831::res://.godot/exported/133200997/export-c739554fc435b25ee4c6278d2a01d6df-enemy_paths.scn
+res://explosion.tscn::ba1401f13cb5af1fba7181eb0b076357::1731637831::res://.godot/exported/133200997/export-37f562657059001060a0639ef053daa5-explosion.scn
+res://hud.tscn::648afae2a3fe5c1c4d12837b41f68c28::1731637831::res://.godot/exported/133200997/export-f4cf891e5f7a93b93d9b27cfb8401ccb-hud.scn
+res://main.tscn::8b3c355a473f4c33cc048c3001150b45::1731638266::res://.godot/exported/133200997/export-3070c538c03ee49b7677ff960a3f5195-main.scn
+res://player.tscn::bee9eac050d1c67af4446c7d2e009391::1731637831::res://.godot/exported/133200997/export-36a25e342948d0ceacc500772b5412b3-player.scn
+res://rock.tscn::08194e8230250543daae699267ac2adc::1731637831::res://.godot/exported/133200997/export-634a346ce00c1b07dc29058060d24b99-rock.scn

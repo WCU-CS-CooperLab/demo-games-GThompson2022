@@ -1,0 +1,11 @@
+res://assets/golf_tiles.tres::8ab2be49e31204e8dd0edd7dde964d8f::1731638154::res://.godot/exported/133200997/export-666ed38a516c7c64059342f524a8dc90-golf_tiles.res
+res://assets/golf_tiles.tscn::24f817531929d5e6d91e1fbfae7347a3::1731637833::res://.godot/exported/133200997/export-a33f1d93788e44820188e454cce05518-golf_tiles.scn
+res://arrow.tscn::cb7f116a797aa0fdbf29befa5baf5575::1731637832::res://.godot/exported/133200997/export-a3ddbc996d1057c95d2a1dbbd876b665-arrow.scn
+res://ball.tscn::0160fa3f83d4d4db2b65690ef40742c7::1731637832::res://.godot/exported/133200997/export-f46c71a9b7f0892a5bf2bd9cf0943875-ball.scn
+res://camera_gimbal.tscn::1b9e61b7154ec6b19442c3bd73acb1b7::1731637832::res://.godot/exported/133200997/export-bd6cef8d0e19afdbde48df87c5f761c0-camera_gimbal.scn
+res://gyr_gradient.tres::57bdda5b776c9d7f84dbf0978acb34d2::1731637832::res://.godot/exported/133200997/export-bd2e819603887e64540186144244ce68-gyr_gradient.res
+res://hole.tscn::a938e380587916a492c053a43dd5c07d::1731637833::res://.godot/exported/133200997/export-b62089cb78c356a152383c851e0c11ae-hole.scn
+res://hole_01.tscn::1bcda6320771ba7f23a81b07b5cafeee::1731638154::res://.godot/exported/133200997/export-371d71410362e9a36b57816bf8a35c17-hole_01.scn
+res://hole_02.tscn::3132800460f0dff1c681a6d6cebd01e8::1731637833::res://.godot/exported/133200997/export-3585531edfea40e17877522054c79a9a-hole_02.scn
+res://test_01.tscn::9e43ff2e93dfc14b813ed475bb067668::1731637833::res://.godot/exported/133200997/export-41387d1a1b5294aa6a0ba04e8b00e92e-test_01.scn
+res://ui.tscn::018f8df264e0e9180523e9245635cb7f::1731637833::res://.godot/exported/133200997/export-5d2f649bfda0e984c5f95c948cc9f360-ui.scn
