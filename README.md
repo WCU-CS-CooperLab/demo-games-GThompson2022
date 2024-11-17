@@ -10,7 +10,7 @@ A template repository to publish games
 5. [Finalinfiniteflyer](Finalinfiniteflyer/index.html)
 
 ## Project_Phase_1
-1. [Project_Phase_1](FinalCoinDash/index.html)
+1. [Project-Phase-1](FinalCoinDash/index.html)
 2. [Project-1-Phase-2](Project-1-Phase-2/index.html)
 
 ## Group Project 1
