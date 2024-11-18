@@ -1,0 +1,43 @@
+[gd_scene load_steps=6 format=3 uid="uid://c8mm1ic21i33g"]
+
+[ext_resource type="PackedScene" uid="uid://dy1cr8jojc8mb" path="res://hole.tscn" id="1_7i0qm"]
+[ext_resource type="Texture2D" uid="uid://dluo53f6x7ys8" path="res://9a7478b60dd31303ffc21e9598b478cf.jpg" id="2_eimth"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_pt1iq"]
+panorama = ExtResource("2_eimth")
+energy_multiplier = 34.92
+
+[sub_resource type="Sky" id="Sky_b140p"]
+sky_material = SubResource("PanoramaSkyMaterial_pt1iq")
+radiance_size = 0
+
+[sub_resource type="Environment" id="Environment_bmxof"]
+background_mode = 2
+background_energy_multiplier = 0.01
+sky = SubResource("Sky_b140p")
+ambient_light_source = 1
+ambient_light_energy = 7.04
+tonemap_mode = 1
+glow_enabled = true
+glow_normalized = true
+glow_intensity = 0.9
+
+[node name="Hole04" instance=ExtResource("1_7i0qm")]
+
+[node name="WorldEnvironment" parent="." index="1"]
+environment = SubResource("Environment_bmxof")
+
+[node name="GridMap" parent="." index="2"]
+data = {
+"cells": PackedInt32Array(65535, 0, 23, 0, 65535, 1048596, 65534, 65535, 1048596, 65535, 65535, 1048589, 65533, 65535, 1048581, 1, 65535, 655365, 65534, 65532, 1048593, 0, 65532, 17, 65533, 65532, 14, 1, 65532, 14, 1, 65534, 655380, 1, 65533, 655380, 65533, 65534, 20, 65533, 65533, 20, 65534, 65533, 13, 65535, 65533, 13, 0, 65533, 13, 0, 65534, 13, 65535, 65534, 13, 65534, 65534, 13, 65535, 65532, 13, -131076, 65529, 1048581, -131075, 65529, 1048596, -131074, 65529, 1048596, -131073, 65529, 1048596, -196608, 65529, 1048596, -196607, 65529, 1048596, -196606, 65529, 655365, -131076, 65528, 20, -131075, 65528, 1441805, -131074, 65528, 1441805, -131073, 65528, 1441805, -196608, 65528, 1441805, -196607, 65528, 1441805, -196606, 65528, 655380, -131076, 65527, 655387, -131073, 65527, 655384, -131074, 65527, 655364, -196608, 65527, 655364, -196608, 65526, 655374, -131074, 65526, 655374, -131073, 65526, 655384, -131073, 65525, 655384, -131073, 65524, 655384, -131073, 65523, 655372, -131075, 65527, 655384, -196607, 65527, 655384, -196606, 65527, 655387, -196606, 65526, 655384, -196606, 65525, 655384, -196606, 65524, 655384, -196607, 65526, 655384, -196607, 65525, 655384, -196607, 65524, 655384, -131075, 65526, 655384, -131075, 65525, 655384, -131075, 65524, 655384, -131076, 65526, 655384, -131076, 65525, 655384, -131076, 65524, 655384, -196606, 65523, 655374, -196607, 65523, 655374, -131075, 65523, 655374, -131076, 65523, 655374)
+}
+metadata/_editor_floor_ = Vector3(0, -3, 0)
+
+[node name="Tee" parent="." index="4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.490355, 0.64899, 0.699189)
+
+[node name="Hole" parent="." index="7"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.50002, 0.469095, -5.49549)
+
+[node name="CollisionShape3D" parent="Hole" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.975704, -3.3367, -7.14986)
