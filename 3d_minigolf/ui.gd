@@ -9,11 +9,8 @@ var bar_textures = {
 	"red": preload("res://assets/bar_red.png")
 }
 
-# Alternative color changing procedure - use the white bar texture.
-#var grad = preload("res://gyr_gradient.tres")
-
-func update_shots(value):
-	shots.text = "Shots: %s" % value
+func update_shots(player_index, value):
+	shots.text = "%s Shots: %d" % ["Player %d" % (player_index + 1), value]
 
 func update_power_bar(value):
 	power_bar.texture_progress = bar_textures["green"]
@@ -21,9 +18,6 @@ func update_power_bar(value):
 		power_bar.texture_progress = bar_textures["red"]
 	elif value > 40:
 		power_bar.texture_progress = bar_textures["yellow"]
-	# Uncomment this line to set the color based on the gradient.
-	# And remove the lines above
-#	power_bar.modulate = grad.sample(value / 100.0)
 	power_bar.value = value
 
 func show_message(text):

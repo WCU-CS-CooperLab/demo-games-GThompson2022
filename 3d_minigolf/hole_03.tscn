@@ -1,8 +1,12 @@
-[gd_scene load_steps=2 format=3 uid="uid://br76y6qbfi7uh"]
+[gd_scene load_steps=3 format=3 uid="uid://br76y6qbfi7uh"]
 
 [ext_resource type="PackedScene" uid="uid://dy1cr8jojc8mb" path="res://hole.tscn" id="1_g7m1y"]
+[ext_resource type="Environment" uid="uid://cc6o2k623djoo" path="res://globalspace.tres" id="2_67bmm"]
 
 [node name="Hole03" instance=ExtResource("1_g7m1y")]
+
+[node name="WorldEnvironment" parent="." index="1"]
+environment = ExtResource("2_67bmm")
 
 [node name="GridMap" parent="." index="2"]
 data = {

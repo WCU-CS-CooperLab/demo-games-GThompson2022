@@ -1,21 +1,36 @@
-[gd_scene load_steps=3 format=3 uid="uid://dlbeoehmabls0"]
+[gd_scene load_steps=5 format=3 uid="uid://dlbeoehmabls0"]
 
 [ext_resource type="PackedScene" uid="uid://kx78gqu42hry" path="res://hole_02.tscn" id="2_jli8i"]
+[ext_resource type="Environment" uid="uid://cc6o2k623djoo" path="res://globalspace.tres" id="3_u4exp"]
+[ext_resource type="PackedScene" uid="uid://b3kxxodmnhp4p" path="res://ball.tscn" id="4_a0mg0"]
 [ext_resource type="PackedScene" uid="uid://dy1cr8jojc8mb" path="res://hole.tscn" id="6_5gic3"]
 
 [node name="Hole01" instance=ExtResource("6_5gic3")]
 next_hole = ExtResource("2_jli8i")
 
+[node name="WorldEnvironment" parent="." index="1"]
+environment = ExtResource("3_u4exp")
+
 [node name="GridMap" parent="." index="2"]
+collision_layer = 2
 data = {
 "cells": PackedInt32Array(65535, 65535, 23, 65535, 65534, 24, 65535, 65533, 24, 65535, 65532, 24, 65535, 65531, 1048591, 65534, 65531, 1441801, 0, 65531, 1441816, 1, 65531, 1048577, 65535, 65530, 655369)
 }
 
-[node name="Tee" parent="." index="4"]
+[node name="Ball" parent="." index="3"]
+collision_mask = 2
+
+[node name="Player2Ball" parent="." index="4" instance=ExtResource("4_a0mg0")]
+collision_layer = 8
+collision_mask = 2
+
+[node name="Tee" parent="." index="5"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.481045, 0.693353, -0.28315)
 
-[node name="Arrow" parent="." index="5"]
+[node name="Arrow" parent="." index="6"]
 visible = false
 
-[node name="Hole" parent="." index="7"]
+[node name="Hole" parent="." index="8"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.49614, 0.452017, -4.49999)
+
+[connection signal="stopped" from="Player2Ball" to="." method="_on_ball_stopped"]
