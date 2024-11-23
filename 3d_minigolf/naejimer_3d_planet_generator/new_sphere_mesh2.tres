@@ -1,0 +1,6 @@
+[gd_resource type="SphereMesh" load_steps=2 format=3 uid="uid://cuar6k6ovxhw1"]
+
+[ext_resource type="Material" uid="uid://cgwgf6ipsj1qt" path="res://addons/naejimer_3d_planet_generator/new_shader_material2.tres" id="1_w0q36"]
+
+[resource]
+material = ExtResource("1_w0q36")

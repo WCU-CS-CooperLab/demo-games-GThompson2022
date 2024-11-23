@@ -1,10 +1,13 @@
-[gd_scene load_steps=6 format=3 uid="uid://dlbeoehmabls0"]
+[gd_scene load_steps=9 format=3 uid="uid://dlbeoehmabls0"]
 
 [ext_resource type="PackedScene" uid="uid://kx78gqu42hry" path="res://hole_02.tscn" id="2_jli8i"]
 [ext_resource type="Environment" uid="uid://cc6o2k623djoo" path="res://globalspace.tres" id="3_u4exp"]
+[ext_resource type="PackedScene" uid="uid://yo6lqoksa53k" path="res://naejimer_3d_planet_generator/scenes/planet_terrestrial.tscn" id="4_3wop2"]
 [ext_resource type="PackedScene" uid="uid://b3kxxodmnhp4p" path="res://ball.tscn" id="4_a0mg0"]
 [ext_resource type="AudioStream" uid="uid://t27vmr4b4o6d" path="res://Elenora_Theme.mp3" id="6_3lrql"]
 [ext_resource type="PackedScene" uid="uid://dy1cr8jojc8mb" path="res://hole.tscn" id="6_5gic3"]
+[ext_resource type="PackedScene" uid="uid://tnvbntvduo2b" path="res://naejimer_3d_planet_generator/scenes/planet_no_atmosphere.tscn" id="6_wnptr"]
+[ext_resource type="PackedScene" uid="uid://c1lxtdgeggnej" path="res://naejimer_3d_planet_generator/scenes/star.tscn" id="8_w2gsp"]
 
 [node name="Hole01" instance=ExtResource("6_5gic3")]
 next_hole = ExtResource("2_jli8i")
@@ -21,9 +24,15 @@ data = {
 [node name="Ball" parent="." index="3"]
 collision_mask = 2
 
+[node name="PlanetTerrestrial" parent="Ball" index="2" instance=ExtResource("4_3wop2")]
+transform = Transform3D(0.0310938, 0, 0.105514, 0, 0.11, 0, -0.105514, 0, 0.0310938, 1.70767e-05, 0, 0)
+
 [node name="Player2Ball" parent="." index="4" instance=ExtResource("4_a0mg0")]
 collision_layer = 8
 collision_mask = 2
+
+[node name="PlanetNoAtmosphere" parent="Player2Ball" index="2" instance=ExtResource("6_wnptr")]
+transform = Transform3D(0.11, 0, 4.91302e-07, 0, 0.11, 0, -4.91302e-07, 0, 0.11, 0, 0, 0)
 
 [node name="Tee" parent="." index="5"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.481045, 0.693353, -0.28315)
@@ -36,3 +45,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.49614, 0.452017, -4.49999)
 
 [node name="Spacesong" type="AudioStreamPlayer" parent="." index="10"]
 stream = ExtResource("6_3lrql")
+
+[node name="Star" parent="." index="11" instance=ExtResource("8_w2gsp")]
+transform = Transform3D(-1.73995, 0, 0.986197, 0, 2, 0, -0.986197, 0, -1.73995, -1.20928, 3.39903, -9.14896)
