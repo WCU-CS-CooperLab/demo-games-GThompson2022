@@ -29,14 +29,14 @@ collision_layer = 8
 collision_mask = 2
 
 [node name="PlanetTerrestrial" parent="Ball" index="2" instance=ExtResource("3_21yje")]
-transform = Transform3D(0.0875861, 0, 0.0665483, 0, 0.11, 0, -0.0665483, 0, 0.0875861, 0, 0, 0)
+transform = Transform3D(0.109974, 0, 0.00237894, 0, 0.11, 0, -0.00237894, 0, 0.109974, 0, 0, 0)
 
 [node name="Player2Ball" parent="." index="4" instance=ExtResource("3_0gu6r")]
 collision_layer = 8
 collision_mask = 2
 
 [node name="PlanetNoAtmosphere" parent="Player2Ball" index="2" instance=ExtResource("5_0ukca")]
-transform = Transform3D(-0.109369, 0, -0.0117627, 0, 0.11, 0, 0.0117627, 0, -0.109369, 0, 0, 0)
+transform = Transform3D(0.109357, 0, 0.0118724, 0, 0.11, 0, -0.0118724, 0, 0.109357, 0, 0, 0)
 
 [node name="Tee" parent="." index="5"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.490355, 0.64899, 0.699189)
@@ -50,7 +50,7 @@ collision_mask = 11
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.975704, -3.3367, -7.14986)
 
 [node name="PlanetGaseous" parent="." index="10" instance=ExtResource("6_iy7i8")]
-transform = Transform3D(3.43958, 0, 3.62895, 0, 5, 0, -3.62895, 0, 3.43958, 0, 0, -21.3893)
+transform = Transform3D(4.99817, 0, 0.135161, 0, 5, 0, -0.135161, 0, 4.99817, 0, 0, -21.3893)
 
 [node name="Spacesong" type="AudioStreamPlayer" parent="." index="11"]
 stream = ExtResource("7_1w20k")

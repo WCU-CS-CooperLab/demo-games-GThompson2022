@@ -153,3 +153,12 @@ func _on_ball_stopped():
 
 	# Transition back to AIM after the ball stops
 		change_state(AIM)
+
+
+func _on_area_3d_area_entered(area: Area3D):
+	# Check if the area contains the current ball
+	var current_ball = get_current_ball()
+	if area == current_ball:
+		var teleport_position = Vector3(1, 1, 1)  # Set the target position
+		current_ball.global_transform.origin = teleport_position
+		print("Teleported the ball to: ", teleport_position)
