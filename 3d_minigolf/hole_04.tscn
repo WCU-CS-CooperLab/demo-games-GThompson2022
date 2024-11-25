@@ -1,29 +1,56 @@
-[gd_scene load_steps=4 format=3 uid="uid://c8mm1ic21i33g"]
+[gd_scene load_steps=8 format=3 uid="uid://c8mm1ic21i33g"]
 
 [ext_resource type="PackedScene" uid="uid://dy1cr8jojc8mb" path="res://hole.tscn" id="1_7i0qm"]
 [ext_resource type="Environment" uid="uid://cc6o2k623djoo" path="res://globalspace.tres" id="2_kwf17"]
 [ext_resource type="PackedScene" uid="uid://b3kxxodmnhp4p" path="res://ball.tscn" id="3_0gu6r"]
+[ext_resource type="PackedScene" uid="uid://yo6lqoksa53k" path="res://naejimer_3d_planet_generator/scenes/planet_terrestrial.tscn" id="3_21yje"]
+[ext_resource type="PackedScene" uid="uid://tnvbntvduo2b" path="res://naejimer_3d_planet_generator/scenes/planet_no_atmosphere.tscn" id="5_0ukca"]
+[ext_resource type="PackedScene" uid="uid://c1ml4yvlgnbbv" path="res://naejimer_3d_planet_generator/scenes/planet_gaseous.tscn" id="6_iy7i8"]
+[ext_resource type="AudioStream" uid="uid://t27vmr4b4o6d" path="res://Elenora_Theme.mp3" id="7_1w20k"]
 
 [node name="Hole04" instance=ExtResource("1_7i0qm")]
+
+[node name="DirectionalLight3D" parent="." index="0"]
+transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0.047226, 1.90735e-06, 0.0930901)
+light_angular_distance = 0.91
 
 [node name="WorldEnvironment" parent="." index="1"]
 environment = ExtResource("2_kwf17")
 
 [node name="GridMap" parent="." index="2"]
+collision_layer = 2
 data = {
 "cells": PackedInt32Array(65535, 0, 23, 0, 65535, 1048596, 65534, 65535, 1048596, 65535, 65535, 1048589, 65533, 65535, 1048581, 1, 65535, 655365, 65534, 65532, 1048593, 0, 65532, 17, 65533, 65532, 14, 1, 65532, 14, 1, 65534, 655380, 1, 65533, 655380, 65533, 65534, 20, 65533, 65533, 20, 65534, 65533, 13, 65535, 65533, 13, 0, 65533, 13, 0, 65534, 13, 65535, 65534, 13, 65534, 65534, 13, 65535, 65532, 13, -131076, 65529, 1048581, -131075, 65529, 1048596, -131074, 65529, 1048596, -131073, 65529, 1048596, -196608, 65529, 1048596, -196607, 65529, 1048596, -196606, 65529, 655365, -131076, 65528, 20, -131075, 65528, 1441805, -131074, 65528, 1441805, -131073, 65528, 1441805, -196608, 65528, 1441805, -196607, 65528, 1441805, -196606, 65528, 655380, -131076, 65527, 655387, -131073, 65527, 655384, -131074, 65527, 655364, -196608, 65527, 655364, -196608, 65526, 655374, -131074, 65526, 655374, -131073, 65526, 655384, -131073, 65525, 655384, -131073, 65524, 655384, -131073, 65523, 655372, -131075, 65527, 655384, -196607, 65527, 655384, -196606, 65527, 655387, -196606, 65526, 655384, -196606, 65525, 655384, -196606, 65524, 655384, -196607, 65526, 655384, -196607, 65525, 655384, -196607, 65524, 655384, -131075, 65526, 655384, -131075, 65525, 655384, -131075, 65524, 655384, -131076, 65526, 655384, -131076, 65525, 655384, -131076, 65524, 655384, -196606, 65523, 655374, -196607, 65523, 655374, -131075, 65523, 655374, -131076, 65523, 655374)
 }
 metadata/_editor_floor_ = Vector3(0, -3, 0)
 
+[node name="Ball" parent="." index="3"]
+collision_layer = 8
+collision_mask = 2
+
+[node name="PlanetTerrestrial" parent="Ball" index="2" instance=ExtResource("3_21yje")]
+transform = Transform3D(0.0875861, 0, 0.0665483, 0, 0.11, 0, -0.0665483, 0, 0.0875861, 0, 0, 0)
+
 [node name="Player2Ball" parent="." index="4" instance=ExtResource("3_0gu6r")]
 collision_layer = 8
 collision_mask = 2
+
+[node name="PlanetNoAtmosphere" parent="Player2Ball" index="2" instance=ExtResource("5_0ukca")]
+transform = Transform3D(-0.109369, 0, -0.0117627, 0, 0.11, 0, 0.0117627, 0, -0.109369, 0, 0, 0)
 
 [node name="Tee" parent="." index="5"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.490355, 0.64899, 0.699189)
 
 [node name="Hole" parent="." index="8"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.50002, 0.469095, -5.49549)
+collision_layer = 10
+collision_mask = 11
 
 [node name="CollisionShape3D" parent="Hole" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.975704, -3.3367, -7.14986)
+
+[node name="PlanetGaseous" parent="." index="10" instance=ExtResource("6_iy7i8")]
+transform = Transform3D(3.43958, 0, 3.62895, 0, 5, 0, -3.62895, 0, 3.43958, 0, 0, -21.3893)
+
+[node name="Spacesong" type="AudioStreamPlayer" parent="." index="11"]
+stream = ExtResource("7_1w20k")

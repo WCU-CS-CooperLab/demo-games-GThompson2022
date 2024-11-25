@@ -1,25 +1,49 @@
-[gd_scene load_steps=4 format=3 uid="uid://kx78gqu42hry"]
+[gd_scene load_steps=9 format=3 uid="uid://kx78gqu42hry"]
 
 [ext_resource type="PackedScene" uid="uid://dy1cr8jojc8mb" path="res://hole.tscn" id="1_d0d1v"]
 [ext_resource type="Environment" uid="uid://cc6o2k623djoo" path="res://globalspace.tres" id="2_df2j2"]
+[ext_resource type="PackedScene" uid="uid://br76y6qbfi7uh" path="res://hole_03.tscn" id="2_qj4hk"]
 [ext_resource type="PackedScene" uid="uid://b3kxxodmnhp4p" path="res://ball.tscn" id="3_tpmxr"]
+[ext_resource type="PackedScene" uid="uid://yo6lqoksa53k" path="res://naejimer_3d_planet_generator/scenes/planet_terrestrial.tscn" id="4_of4wf"]
+[ext_resource type="PackedScene" uid="uid://tnvbntvduo2b" path="res://naejimer_3d_planet_generator/scenes/planet_no_atmosphere.tscn" id="6_2jy1a"]
+[ext_resource type="PackedScene" uid="uid://biy37ccrqck53" path="res://naejimer_3d_planet_generator/scenes/planet_ice.tscn" id="7_wjkke"]
+[ext_resource type="AudioStream" uid="uid://t27vmr4b4o6d" path="res://Elenora_Theme.mp3" id="8_fojy1"]
 
 [node name="Hole02" instance=ExtResource("1_d0d1v")]
+next_hole = ExtResource("2_qj4hk")
 
 [node name="WorldEnvironment" parent="." index="1"]
 environment = ExtResource("2_df2j2")
 
 [node name="GridMap" parent="." index="2"]
+collision_layer = 2
 data = {
 "cells": PackedInt32Array(65535, 0, 23, 65535, 65535, 24, 65535, 65534, 27, 65535, 65533, 0, 0, 65533, 655360, 0, 65532, 655384, 0, 65531, 655391, 0, 65530, 655371)
 }
 
+[node name="Ball" parent="." index="3"]
+collision_mask = 2
+
+[node name="PlanetTerrestrial" parent="Ball" index="2" instance=ExtResource("4_of4wf")]
+transform = Transform3D(0.108915, 0, 0.0154084, 0, 0.11, 0, -0.0154084, 0, 0.108915, 0, 0, 0)
+
 [node name="Player2Ball" parent="." index="4" instance=ExtResource("3_tpmxr")]
 collision_layer = 8
 collision_mask = 2
+
+[node name="PlanetNoAtmosphere" parent="Player2Ball" index="2" instance=ExtResource("6_2jy1a")]
+transform = Transform3D(0.0839414, 0, 0.0710904, 0, 0.11, 0, -0.0710904, 0, 0.0839414, 0, 0, 0)
 
 [node name="Tee" parent="." index="5"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.490355, 0.64899, 0.699189)
 
 [node name="Hole" parent="." index="8"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.50002, 0.469095, -5.49549)
+collision_layer = 10
+collision_mask = 11
+
+[node name="PlanetIce" parent="." index="10" instance=ExtResource("7_wjkke")]
+transform = Transform3D(4.9507, 0, 0.700383, 0, 5, 0, -0.700383, 0, 4.9507, -0.30164, 1.03986, -13.4162)
+
+[node name="Spacesong" type="AudioStreamPlayer" parent="." index="11"]
+stream = ExtResource("8_fojy1")

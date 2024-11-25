@@ -19,6 +19,7 @@ var is_reloading = false
 func _ready():
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	$Arrow.hide()
+	$Spacesong.play()
 
 	# Reset reload flag
 	is_reloading = false
@@ -28,7 +29,6 @@ func _ready():
 		$Ball.disconnect("stopped", Callable(self, "_on_ball_stopped"))
 	if $Player2Ball.is_connected("stopped", Callable(self, "_on_ball_stopped")):
 		$Player2Ball.disconnect("stopped", Callable(self, "_on_ball_stopped"))
-
 	# Connect only the active ball
 	if GameState.current_player == 1:
 		$Ball.position = $Tee.position
@@ -78,8 +78,14 @@ func change_state(new_state):
 				get_tree().reload_current_scene()  # Reload current scene for Player 2
 			else:
 				$UI.show_message("Player 2 Wins!")
-				await get_tree().create_timer(1.5).timeout  # Transition to the next level after Player 2 wins
-				get_tree().change_scene_to_packed(next_hole)  # Load the next hole
+				await get_tree().create_timer(1).timeout
+				if next_hole:  # Transition to the next level after Player 2 wins
+					GameState.current_player = 1  # Reset to Player 1 for the next hole
+					get_tree().change_scene_to_packed(next_hole)  # Load the next hole
+				else:
+				# If no next hole is defined, reset to Player 1 and reload the current scene
+					GameState.current_player = 1
+					get_tree().reload_current_scene()
 
 func _input(event):
 	if event.is_action_pressed("ui_cancel") and Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
@@ -126,8 +132,12 @@ func get_current_ball():
 	return $Ball if GameState.current_player == 1 else $Player2Ball
 
 func _on_hole_body_entered(body):
-	if body.name == get_current_ball().name:
+	print("Body entered hole:", body)
+	var current_ball = get_current_ball()
+	if body == current_ball:
+		print("Player %d wins this hole!" % GameState.current_player)
 		change_state(WIN)
+
 
 func _on_ball_stopped():
 	var active_ball = get_current_ball()
