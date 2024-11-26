@@ -15,7 +15,7 @@ A template repository to publish games
 
 ## Project_Phase_2
 1. [Project-2-Phase-1](FinalMinigolf/index.html)
-2. [Project-2-Phase-2](Project-2-Phase-2/index.html)
+2. [Project-2-Phase-2](Project-2-phase-2-updated/index.html)
 
 
 ## Group Project 1

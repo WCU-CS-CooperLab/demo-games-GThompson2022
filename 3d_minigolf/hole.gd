@@ -18,7 +18,6 @@ var player1_score = 0
 var player2_score = 0
 
 
-
 func _ready():
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	$Arrow.hide()
@@ -74,24 +73,25 @@ func change_state(new_state):
 			if is_reloading:
 				return
 			is_reloading = true
-
+			
 			if GameState.current_player == 1:
 				player1_score += shots
 				GameState.current_player = 2
-				shots = 0  # Reset shots for the next player
-				$UI.show_message("Player 1 finished with %d shots! Player 2, get ready!" % player1_score)
-				await get_tree().create_timer(3).timeout
-				get_tree().reload_current_scene()
+				shots = 0
+				$UI.show_message("Player 1 finished! Player 2, get ready!")
+				await get_tree().create_timer(1.5).timeout
+				get_tree().reload_current_scene()  # Reload current scene for Player 2
 			else:
 				player2_score += shots
 				shots = 0
-				$UI.show_message("Player 2 finished with %d shots!" % player2_score)
-				await get_tree().create_timer(3).timeout
-
-				if next_hole:
-					GameState.current_player = 1
-					get_tree().change_scene_to_packed(next_hole)
+				$UI.show_message("Player 2 Wins!")
+				await get_tree().create_timer(1).timeout
+				
+				if next_hole:  # Transition to the next level after Player 2 wins
+					GameState.current_player = 1  # Reset to Player 1 for the next hole
+					get_tree().change_scene_to_packed(next_hole)  # Load the next hole
 				else:
+				# If no next hole is defined, reset to Player 1 and reload the current scene
 					declare_winner()
 
 func declare_winner():
@@ -104,7 +104,6 @@ func declare_winner():
 	GameState.current_player = 1
 	await get_tree().create_timer(3).timeout
 	get_tree().reload_current_scene()
-
 
 func _input(event):
 	if event.is_action_pressed("ui_cancel") and Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
@@ -176,7 +175,7 @@ func _on_ball_stopped():
 func _on_blackhole_body_entered(body):
 	var current_ball = get_current_ball()
 	if body == current_ball:
-		var teleport_position = Vector3(1.495, 1, -4.51)  # Set the target position
+		var teleport_position = Vector3(1.495, 0.5, -4.51)  # Set the target position
 		current_ball.global_transform.origin = teleport_position
 		print("Teleported the ball to: ", teleport_position)
 
@@ -184,14 +183,14 @@ func _on_blackhole_body_entered(body):
 func _on_blackhole_body_entered2(body):
 	var current_ball = get_current_ball()
 	if body == current_ball:
-		var teleport_position = Vector3(0.5, 1, -5.495)  # Set the target position
+		var teleport_position = Vector3(0.5, 0.5, -5.495)  # Set the target position
 		current_ball.global_transform.origin = teleport_position
 		print("Teleported the ball to: ", teleport_position)
 
 func _on_blackhole_body_entered3(body):
 	var current_ball = get_current_ball()
 	if body == current_ball:
-		var teleport_position = Vector3(-0.49, 1, 0.699)  # Set the target position
+		var teleport_position = Vector3(-0.49, 0.5, 0.699)  # Set the target position
 		current_ball.global_transform.origin = teleport_position
 		print("Teleported the ball to: ", teleport_position)
 
@@ -199,7 +198,7 @@ func _on_blackhole_body_entered3(body):
 func _on_blackhole_body_entered4(body):
 	var current_ball = get_current_ball()
 	if body == current_ball:
-		var teleport_position = Vector3(3.505, 1, -6.503)  # Set the target position
+		var teleport_position = Vector3(3.505, 0.5, -6.503)  # Set the target position
 		current_ball.global_transform.origin = teleport_position
 		print("Teleported the ball to: ", teleport_position)
 

@@ -42,14 +42,14 @@ metadata/_editor_floor_ = Vector3(0, 0, 0)
 collision_mask = 2
 
 [node name="PlanetTerrestrial" parent="Ball" index="2" instance=ExtResource("4_of4wf")]
-transform = Transform3D(0.10952, 0, 0.0102641, 0, 0.11, 0, -0.0102641, 0, 0.10952, 0, 0, 0)
+transform = Transform3D(0.109992, 0, 0.0012897, 0, 0.11, 0, -0.0012897, 0, 0.109992, 0, 0, 0)
 
 [node name="Player2Ball" parent="." index="4" instance=ExtResource("3_tpmxr")]
 collision_layer = 8
 collision_mask = 2
 
 [node name="PlanetNoAtmosphere" parent="Player2Ball" index="2" instance=ExtResource("6_2jy1a")]
-transform = Transform3D(0.0982101, 0, 0.0495458, 0, 0.11, 0, -0.0495458, 0, 0.0982101, 0, 0, 0)
+transform = Transform3D(0.109811, 0, 0.00644497, 0, 0.11, 0, -0.00644497, 0, 0.109811, 0, 0, 0)
 
 [node name="Tee" parent="." index="5"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.490355, 0.64899, 0.699189)
@@ -60,7 +60,7 @@ collision_layer = 10
 collision_mask = 11
 
 [node name="PlanetIce" parent="." index="10" instance=ExtResource("7_wjkke")]
-transform = Transform3D(4.97818, 0, 0.466552, 0, 5, 0, -0.466552, 0, 4.97818, -0.30164, 1.03986, -13.4162)
+transform = Transform3D(4.99965, 0, 0.0586228, 0, 5, 0, -0.0586228, 0, 4.99965, -0.30164, 1.03986, -13.4162)
 
 [node name="Spacesong" type="AudioStreamPlayer" parent="." index="11"]
 stream = ExtResource("8_fojy1")
