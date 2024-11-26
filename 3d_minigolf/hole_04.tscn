@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://c8mm1ic21i33g"]
+[gd_scene load_steps=12 format=3 uid="uid://c8mm1ic21i33g"]
 
 [ext_resource type="PackedScene" uid="uid://dy1cr8jojc8mb" path="res://hole.tscn" id="1_7i0qm"]
 [ext_resource type="Environment" uid="uid://cc6o2k623djoo" path="res://globalspace.tres" id="2_kwf17"]
@@ -7,11 +7,24 @@
 [ext_resource type="PackedScene" uid="uid://tnvbntvduo2b" path="res://naejimer_3d_planet_generator/scenes/planet_no_atmosphere.tscn" id="5_0ukca"]
 [ext_resource type="PackedScene" uid="uid://c1ml4yvlgnbbv" path="res://naejimer_3d_planet_generator/scenes/planet_gaseous.tscn" id="6_iy7i8"]
 [ext_resource type="AudioStream" uid="uid://t27vmr4b4o6d" path="res://Elenora_Theme.mp3" id="7_1w20k"]
+[ext_resource type="Texture2D" uid="uid://kllw5b7f5sly" path="res://0364f99d28fa79d74b152859b6c0bea3.png" id="8_8echm"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u7wtg"]
+transparency = 1
+shading_mode = 0
+albedo_texture = ExtResource("8_8echm")
+disable_receive_shadows = true
+
+[sub_resource type="SphereMesh" id="SphereMesh_husks"]
+material = SubResource("StandardMaterial3D_u7wtg")
+height = 0.99
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_yhx7s"]
 
 [node name="Hole04" instance=ExtResource("1_7i0qm")]
 
 [node name="DirectionalLight3D" parent="." index="0"]
-transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0.047226, 1.90735e-06, 0.0930901)
+transform = Transform3D(-0.866025, -0.433013, 0.25, 0.392556, -0.279157, 0.87634, -0.309677, 0.857071, 0.411738, 0.047226, 1.90735e-06, 0.0930901)
 light_angular_distance = 0.91
 
 [node name="WorldEnvironment" parent="." index="1"]
@@ -29,28 +42,81 @@ collision_layer = 8
 collision_mask = 2
 
 [node name="PlanetTerrestrial" parent="Ball" index="2" instance=ExtResource("3_21yje")]
-transform = Transform3D(0.109974, 0, 0.00237894, 0, 0.11, 0, -0.00237894, 0, 0.109974, 0, 0, 0)
+transform = Transform3D(-0.0426101, 0, -0.101412, 0, 0.11, 0, 0.101412, 0, -0.0426101, 0, 0, 0)
 
 [node name="Player2Ball" parent="." index="4" instance=ExtResource("3_0gu6r")]
 collision_layer = 8
 collision_mask = 2
 
 [node name="PlanetNoAtmosphere" parent="Player2Ball" index="2" instance=ExtResource("5_0ukca")]
-transform = Transform3D(0.109357, 0, 0.0118724, 0, 0.11, 0, -0.0118724, 0, 0.109357, 0, 0, 0)
+transform = Transform3D(0.11, 0, 4.913e-07, 0, 0.11, 0, -4.913e-07, 0, 0.11, 0, 0, 0)
 
 [node name="Tee" parent="." index="5"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.490355, 0.64899, 0.699189)
 
 [node name="Hole" parent="." index="8"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.50002, 0.469095, -5.49549)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.485375, -2.31277, -12.6822)
 collision_layer = 10
 collision_mask = 11
 
 [node name="CollisionShape3D" parent="Hole" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.975704, -3.3367, -7.14986)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0129679, -0.205515, 0.0091486)
 
 [node name="PlanetGaseous" parent="." index="10" instance=ExtResource("6_iy7i8")]
-transform = Transform3D(4.99817, 0, 0.135161, 0, 5, 0, -0.135161, 0, 4.99817, 0, 0, -21.3893)
+transform = Transform3D(3.14739, 0, -3.88509, 0, 5, 0, 3.88509, 0, 3.14739, 0, 0, -21.3893)
 
 [node name="Spacesong" type="AudioStreamPlayer" parent="." index="11"]
 stream = ExtResource("7_1w20k")
+
+[node name="Blackhole3" type="Area3D" parent="." index="12"]
+transform = Transform3D(-0.106212, 0, -0.994343, 0, 1, 0, 0.994343, 0, -0.106212, 2.5281, -2.2402, -11.9375)
+collision_layer = 10
+collision_mask = 11
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Blackhole3" index="0"]
+transform = Transform3D(-0.0166385, 0.0337185, -0.465695, 1.24997e-09, -0.376094, -0.0418314, -0.380779, -0.00147338, 0.0203491, 0.128434, 0, -0.0137188)
+mesh = SubResource("SphereMesh_husks")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Blackhole3" index="1"]
+shape = SubResource("SphereShape3D_yhx7s")
+
+[node name="Blackhole4" type="Area3D" parent="." index="13"]
+transform = Transform3D(-0.113533, 0, -0.993534, 0, 1, 0, 0.993534, 0, -0.113533, 1.50482, -2.17321, -11.8473)
+collision_layer = 10
+collision_mask = 11
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Blackhole4" index="0"]
+transform = Transform3D(-0.0166385, 0.0337185, -0.465695, 1.24997e-09, -0.376094, -0.0418314, -0.380779, -0.00147338, 0.0203491, 0, -0.0703728, 0)
+mesh = SubResource("SphereMesh_husks")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Blackhole4" index="1"]
+shape = SubResource("SphereShape3D_yhx7s")
+
+[node name="Blackhole5" type="Area3D" parent="." index="14"]
+transform = Transform3D(-0.0667615, 0, -0.997769, 0, 1, 0, 0.997769, 0, -0.0667615, -2.50316, -2.24557, -11.7602)
+collision_layer = 10
+collision_mask = 11
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Blackhole5" index="0"]
+transform = Transform3D(-0.0166385, 0.0337185, -0.465695, 1.24997e-09, -0.376094, -0.0418314, -0.380779, -0.00147338, 0.0203491, 0, 0, 0)
+mesh = SubResource("SphereMesh_husks")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Blackhole5" index="1"]
+shape = SubResource("SphereShape3D_yhx7s")
+
+[node name="Blackhole6" type="Area3D" parent="." index="15"]
+transform = Transform3D(-0.00773175, 0, -0.99997, 0, 1, 0, 0.99997, 0, -0.00773175, -3.54295, -2.19976, -11.7607)
+collision_layer = 10
+collision_mask = 11
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Blackhole6" index="0"]
+transform = Transform3D(-0.0166385, 0.0337185, -0.465695, 1.24997e-09, -0.376094, -0.0418314, -0.380779, -0.00147338, 0.0203491, 0, 0, 0)
+mesh = SubResource("SphereMesh_husks")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Blackhole6" index="1"]
+shape = SubResource("SphereShape3D_yhx7s")
+
+[connection signal="body_entered" from="Blackhole3" to="." method="_on_blackhole_body_entered5"]
+[connection signal="body_entered" from="Blackhole4" to="." method="_on_blackhole_body_entered6"]
+[connection signal="body_entered" from="Blackhole5" to="." method="_on_blackhole_body_entered7"]
+[connection signal="body_entered" from="Blackhole6" to="." method="_on_blackhole_body_entered8"]

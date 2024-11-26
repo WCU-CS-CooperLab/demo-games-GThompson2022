@@ -154,11 +154,61 @@ func _on_ball_stopped():
 	# Transition back to AIM after the ball stops
 		change_state(AIM)
 
-
-func _on_area_3d_area_entered(area: Area3D):
-	# Check if the area contains the current ball
+func _on_blackhole_body_entered(body):
 	var current_ball = get_current_ball()
-	if area == current_ball:
-		var teleport_position = Vector3(1, 1, 1)  # Set the target position
+	if body == current_ball:
+		var teleport_position = Vector3(1.495, 1, -4.51)  # Set the target position
+		current_ball.global_transform.origin = teleport_position
+		print("Teleported the ball to: ", teleport_position)
+
+
+func _on_blackhole_body_entered2(body):
+	var current_ball = get_current_ball()
+	if body == current_ball:
+		var teleport_position = Vector3(0.5, 1, -5.495)  # Set the target position
+		current_ball.global_transform.origin = teleport_position
+		print("Teleported the ball to: ", teleport_position)
+
+func _on_blackhole_body_entered3(body):
+	var current_ball = get_current_ball()
+	if body == current_ball:
+		var teleport_position = Vector3(-0.49, 1, 0.699)  # Set the target position
+		current_ball.global_transform.origin = teleport_position
+		print("Teleported the ball to: ", teleport_position)
+
+
+func _on_blackhole_body_entered4(body):
+	var current_ball = get_current_ball()
+	if body == current_ball:
+		var teleport_position = Vector3(3.505, 1, -6.503)  # Set the target position
+		current_ball.global_transform.origin = teleport_position
+		print("Teleported the ball to: ", teleport_position)
+
+
+func _on_blackhole_body_entered5(body):
+	var current_ball = get_current_ball()
+	if body == current_ball:
+		var teleport_position = Vector3(-0.485, -1.313, -12.682)  # Set the target position
+		current_ball.global_transform.origin = teleport_position
+		print("Teleported the ball to: ", teleport_position)
+
+func _on_blackhole_body_entered6(body):
+	var current_ball = get_current_ball()
+	if body == current_ball:
+		var teleport_position = Vector3(-0.49, 0.649, 0.699)  # Set the target position
+		current_ball.global_transform.origin = teleport_position
+		print("Teleported the ball to: ", teleport_position)
+
+func _on_blackhole_body_entered7(body):
+	var current_ball = get_current_ball()
+	if body == current_ball:
+		var teleport_position = Vector3(-0.485, -1.313, -12.682)  # Set the target position
+		current_ball.global_transform.origin = teleport_position
+		print("Teleported the ball to: ", teleport_position)
+
+func _on_blackhole_body_entered8(body):
+	var current_ball = get_current_ball()
+	if body == current_ball:
+		var teleport_position = Vector3(-0.49, 0.649, 0.699)  # Set the target position
 		current_ball.global_transform.origin = teleport_position
 		print("Teleported the ball to: ", teleport_position)
