@@ -14,6 +14,9 @@ var state = AIM
 var power = 0
 var hole_dir = 0
 var is_reloading = false
+var player1_score = 0
+var player2_score = 0
+
 
 
 func _ready():
@@ -71,21 +74,37 @@ func change_state(new_state):
 			if is_reloading:
 				return
 			is_reloading = true
+
 			if GameState.current_player == 1:
+				player1_score += shots
 				GameState.current_player = 2
-				$UI.show_message("Player 1 finished! Player 2, get ready!")
-				await get_tree().create_timer(1.5).timeout
-				get_tree().reload_current_scene()  # Reload current scene for Player 2
+				shots = 0  # Reset shots for the next player
+				$UI.show_message("Player 1 finished with %d shots! Player 2, get ready!" % player1_score)
+				await get_tree().create_timer(3).timeout
+				get_tree().reload_current_scene()
 			else:
-				$UI.show_message("Player 2 Wins!")
-				await get_tree().create_timer(1).timeout
-				if next_hole:  # Transition to the next level after Player 2 wins
-					GameState.current_player = 1  # Reset to Player 1 for the next hole
-					get_tree().change_scene_to_packed(next_hole)  # Load the next hole
-				else:
-				# If no next hole is defined, reset to Player 1 and reload the current scene
+				player2_score += shots
+				shots = 0
+				$UI.show_message("Player 2 finished with %d shots!" % player2_score)
+				await get_tree().create_timer(3).timeout
+
+				if next_hole:
 					GameState.current_player = 1
-					get_tree().reload_current_scene()
+					get_tree().change_scene_to_packed(next_hole)
+				else:
+					declare_winner()
+
+func declare_winner():
+	if player1_score < player2_score:
+		$UI.show_message("Player 1 Wins with %d shots! Player 2 had %d shots." % [player1_score, player2_score])
+	elif player2_score < player1_score:
+		$UI.show_message("Player 2 Wins with %d shots! Player 1 had %d shots." % [player2_score, player1_score])
+	else:
+		$UI.show_message("It's a tie! Both players had %d shots." % player1_score)
+	GameState.current_player = 1
+	await get_tree().create_timer(3).timeout
+	get_tree().reload_current_scene()
+
 
 func _input(event):
 	if event.is_action_pressed("ui_cancel") and Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:

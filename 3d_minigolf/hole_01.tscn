@@ -42,7 +42,7 @@ metadata/_editor_floor_ = Vector3(0, -2, 0)
 collision_mask = 2
 
 [node name="PlanetTerrestrial" parent="Ball" index="2" instance=ExtResource("4_3wop2")]
-transform = Transform3D(0.108714, 0, 0.0167694, 0, 0.11, 0, -0.0167694, 0, 0.108714, 1.70767e-05, 0, 0)
+transform = Transform3D(0.0187484, 0, -0.10839, 0, 0.11, 0, 0.10839, 0, 0.0187484, 1.70767e-05, 0, 0)
 
 [node name="Player2Ball" parent="." index="4" instance=ExtResource("4_a0mg0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5782, 1.84759, -1.02635)
@@ -51,7 +51,7 @@ collision_layer = 8
 collision_mask = 2
 
 [node name="PlanetNoAtmosphere" parent="Player2Ball" index="2" instance=ExtResource("6_wnptr")]
-transform = Transform3D(0.0793342, 0, 0.0761972, 0, 0.11, 0, -0.0761972, 0, 0.0793342, 0, 0, 0)
+transform = Transform3D(0.11, 0, 4.913e-07, 0, 0.11, 0, -4.913e-07, 0, 0.11, 0, 0, 0)
 
 [node name="Tee" parent="." index="5"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.481045, 0.693353, -0.28315)
@@ -71,10 +71,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0769387, 0)
 stream = ExtResource("6_3lrql")
 
 [node name="Star" parent="." index="11" instance=ExtResource("8_w2gsp")]
-transform = Transform3D(0.820907, 0, 1.82377, 0, 2, 0, -1.82377, 0, 0.820907, -1.20928, 3.39903, -9.14896)
+transform = Transform3D(0.95737, 0, -1.75598, 0, 2, 0, 1.75598, 0, 0.95737, -1.20928, 3.39903, -9.14896)
 
 [node name="Blackhole" type="Area3D" parent="." index="12"]
 transform = Transform3D(0.997675, 0, 0.0681546, 0, 1, 0, -0.0681546, 0, 0.997675, -1.85214, 0.77729, -4.56758)
+collision_layer = 10
+collision_mask = 11
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Blackhole" index="0"]
 transform = Transform3D(-0.0166385, 0.0337185, -0.465695, 1.24997e-09, -0.376094, -0.0418314, -0.380779, -0.00147338, 0.0203491, 0, 0, 0)

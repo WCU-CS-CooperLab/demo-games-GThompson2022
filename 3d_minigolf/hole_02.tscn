@@ -42,14 +42,14 @@ metadata/_editor_floor_ = Vector3(0, 0, 0)
 collision_mask = 2
 
 [node name="PlanetTerrestrial" parent="Ball" index="2" instance=ExtResource("4_of4wf")]
-transform = Transform3D(0.107671, 0, 0.0225114, 0, 0.11, 0, -0.0225114, 0, 0.107671, 0, 0, 0)
+transform = Transform3D(0.10952, 0, 0.0102641, 0, 0.11, 0, -0.0102641, 0, 0.10952, 0, 0, 0)
 
 [node name="Player2Ball" parent="." index="4" instance=ExtResource("3_tpmxr")]
 collision_layer = 8
 collision_mask = 2
 
 [node name="PlanetNoAtmosphere" parent="Player2Ball" index="2" instance=ExtResource("6_2jy1a")]
-transform = Transform3D(0.05658, 0, 0.094333, 0, 0.11, 0, -0.094333, 0, 0.05658, 0, 0, 0)
+transform = Transform3D(0.0982101, 0, 0.0495458, 0, 0.11, 0, -0.0495458, 0, 0.0982101, 0, 0, 0)
 
 [node name="Tee" parent="." index="5"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.490355, 0.64899, 0.699189)
@@ -60,13 +60,15 @@ collision_layer = 10
 collision_mask = 11
 
 [node name="PlanetIce" parent="." index="10" instance=ExtResource("7_wjkke")]
-transform = Transform3D(4.89417, 0, 1.02325, 0, 5, 0, -1.02325, 0, 4.89417, -0.30164, 1.03986, -13.4162)
+transform = Transform3D(4.97818, 0, 0.466552, 0, 5, 0, -0.466552, 0, 4.97818, -0.30164, 1.03986, -13.4162)
 
 [node name="Spacesong" type="AudioStreamPlayer" parent="." index="11"]
 stream = ExtResource("8_fojy1")
 
 [node name="Blackhole" type="Area3D" parent="." index="12"]
 transform = Transform3D(0.997675, 0, 0.0681546, 0, 1, 0, -0.0681546, 0, 0.997675, -1.85214, 0.77729, -3.55997)
+collision_layer = 10
+collision_mask = 11
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Blackhole" index="0"]
 transform = Transform3D(-0.0166385, 0.0337185, -0.465695, 1.24997e-09, -0.376094, -0.0418314, -0.380779, -0.00147338, 0.0203491, 0, 0, 0)
@@ -77,6 +79,8 @@ shape = SubResource("SphereShape3D_qb1bf")
 
 [node name="Blackhole2" type="Area3D" parent="." index="13"]
 transform = Transform3D(-0.983776, 0, 0.179403, 0, 1, 0, -0.179403, 0, -0.983776, 2.82744, 0.77729, -3.55997)
+collision_layer = 10
+collision_mask = 11
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Blackhole2" index="0"]
 transform = Transform3D(-0.0166385, 0.0337185, -0.465695, 1.24997e-09, -0.376094, -0.0418314, -0.380779, -0.00147338, 0.0203491, 0, 0, 0)
