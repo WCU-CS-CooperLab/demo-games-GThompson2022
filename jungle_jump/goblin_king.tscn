@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://bclhut6yonlgc"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_crpj6"]
+
+[node name="Goblin_king" type="CharacterBody2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_crpj6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
