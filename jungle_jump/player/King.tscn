@@ -292,13 +292,13 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_n57ph"]
-size = Vector2(23.5, 26)
+size = Vector2(11, 26)
 
 [sub_resource type="Gradient" id="Gradient_ad3dv"]
 colors = PackedColorArray(1, 0.874624, 0.466843, 1, 1, 0.87451, 0.466667, 0)
 
-[node name="King" type="CharacterBody2D"]
-position = Vector2(6, -15)
+[node name="King" type="CharacterBody2D" groups=["player"]]
+position = Vector2(232, 187)
 collision_layer = 2
 collision_mask = 13
 floor_snap_length = 8.0
@@ -309,8 +309,8 @@ metadata/_edit_group_ = true
 sprite_frames = SubResource("SpriteFrames_m0xco")
 animation = &"jump"
 
-[node name="CollisionShape2d" type="CollisionShape2D" parent="."]
-position = Vector2(-7, 0)
+[node name="CollisionShape2d" type="CollisionShape2D" parent="." groups=["player"]]
+position = Vector2(0.5, 0)
 shape = SubResource("RectangleShape2D_n57ph")
 
 [node name="Camera2d" type="Camera2D" parent="."]
