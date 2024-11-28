@@ -1,6 +1,7 @@
-[gd_scene load_steps=15 format=4 uid="uid://bmneoajcm0o5o"]
+[gd_scene load_steps=16 format=4 uid="uid://bmneoajcm0o5o"]
 
 [ext_resource type="Script" path="res://level_2.gd" id="1_p14y4"]
+[ext_resource type="PackedScene" uid="uid://k6bwulikjkjw" path="res://level4.tscn" id="2_fmakm"]
 [ext_resource type="Texture2D" uid="uid://b1s44gg2ak4t0" path="res://Kings and Pigs/Sprites/14-TileSets/Decorations (32x32).png" id="2_fmq18"]
 [ext_resource type="Texture2D" uid="uid://cn6lwk2noftj8" path="res://Kings and Pigs/Sprites/14-TileSets/Terrain (32x32).png" id="3_evt0c"]
 [ext_resource type="Texture2D" uid="uid://cnm1udd1iuffm" path="res://Kings and Pigs/Sprites/11-Door/Idle.png" id="4_pcyi5"]
@@ -559,6 +560,7 @@ size = Vector2(43, 58)
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_p14y4")
+next_level_scene = ExtResource("2_fmakm")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 position = Vector2(0, 6)
@@ -569,10 +571,11 @@ tile_set = SubResource("TileSet_ahtjg")
 tile_set = SubResource("TileSet_ahtjg")
 
 [node name="TileMapLayer3" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray("AAAFAAAAAAAEAAIAAAAGAAAAAAAFAAIAAAAHAAAAAAAGAAIAAAAIAAAAAAAHAAIAAAAJAAAAAAAIAAIAAAAKAAAAAAAJAAIAAAAZAAAAAAAEAAIAAAAaAAAAAAAFAAIAAAAbAAAAAAAGAAIAAAAcAAAAAAAHAAIAAAAdAAAAAAAIAAIAAAAeAAAAAAAJAAIAAAA=")
 tile_set = SubResource("TileSet_ahtjg")
 
 [node name="TileMapLayer4" type="TileMapLayer" parent="."]
-tile_map_data = PackedByteArray("AAAGAPr/AAAEAAYAAAAGAPv/AAAEAAcAAAAGAPz/AAAEAAgAAAAGAP3/AAAEAAkAAAAHAPr/AAAFAAYAAAAHAPv/AAAFAAcAAAAHAPz/AAAFAAgAAAAHAP3/AAAFAAkAAAAIAPr/AAAGAAYAAAAIAPv/AAAGAAcAAAAIAPz/AAAGAAgAAAAIAP3/AAAGAAkAAAAaAPr/AAAEAAYAAAAaAPv/AAAEAAcAAAAaAPz/AAAEAAgAAAAaAP3/AAAEAAkAAAAbAPr/AAAFAAYAAAAbAPv/AAAFAAcAAAAbAPz/AAAFAAgAAAAbAP3/AAAFAAkAAAAcAPr/AAAGAAYAAAAcAPv/AAAGAAcAAAAcAPz/AAAGAAgAAAAcAP3/AAAGAAkAAAAeAPj/AAACAAIAAAAeAPn/AAACAAMAAAAeAPr/AAACAAQAAAAeAPv/AAACAAUAAAAeAPz/AAACAAYAAAAeAP3/AAACAAcAAAAeAP7/AAACAAgAAAAeAP//AAACAAkAAAAfAPj/AAADAAIAAAAfAPn/AAADAAMAAAAfAPr/AAADAAQAAAAfAPv/AAADAAUAAAAfAPz/AAADAAYAAAAfAP3/AAADAAcAAAAfAP7/AAADAAgAAAAfAP//AAADAAkAAAA=")
+tile_map_data = PackedByteArray("AAAGAPr/AAAEAAYAAAAGAPv/AAAEAAcAAAAGAPz/AAAEAAgAAAAGAP3/AAAEAAkAAAAHAPr/AAAFAAYAAAAHAPv/AAAFAAcAAAAHAPz/AAAFAAgAAAAHAP3/AAAFAAkAAAAIAPr/AAAGAAYAAAAIAPv/AAAGAAcAAAAIAPz/AAAGAAgAAAAIAP3/AAAGAAkAAAAaAPr/AAAEAAYAAAAaAPv/AAAEAAcAAAAaAPz/AAAEAAgAAAAaAP3/AAAEAAkAAAAbAPr/AAAFAAYAAAAbAPv/AAAFAAcAAAAbAPz/AAAFAAgAAAAbAP3/AAAFAAkAAAAcAPr/AAAGAAYAAAAcAPv/AAAGAAcAAAAcAPz/AAAGAAgAAAAcAP3/AAAGAAkAAAAeAPj/AAACAAIAAAAeAPn/AAACAAMAAAAeAPr/AAACAAQAAAAeAPv/AAACAAUAAAAeAPz/AAACAAYAAAAeAP3/AAACAAcAAAAfAPj/AAADAAIAAAAfAPn/AAADAAMAAAAfAPr/AAADAAQAAAAfAPv/AAADAAUAAAAfAPz/AAADAAYAAAAfAP3/AAADAAcAAAAZAAAAAAACAAgAAAAZAAEAAAACAAkAAAAaAAAAAAADAAgAAAAaAAEAAAADAAkAAAAbAAAAAAACAAgAAAAbAAEAAAACAAkAAAAcAAAAAAADAAgAAAAcAAEAAAADAAkAAAAdAAAAAAACAAgAAAAdAAEAAAACAAkAAAAeAAAAAAADAAgAAAAeAAEAAAADAAkAAAABAPj/AAACAAIAAAABAPn/AAACAAMAAAABAPr/AAACAAQAAAABAPv/AAACAAUAAAABAPz/AAACAAYAAAABAP3/AAACAAcAAAACAPj/AAADAAIAAAACAPn/AAADAAMAAAACAPr/AAADAAQAAAACAPv/AAADAAUAAAACAPz/AAADAAYAAAACAP3/AAADAAcAAAA=")
 tile_set = SubResource("TileSet_ahtjg")
 
 [node name="Door" type="Sprite2D" parent="."]
@@ -591,10 +594,6 @@ position = Vector2(4, 0)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Door/Area2D"]
 position = Vector2(-4.5, 0)
 shape = SubResource("RectangleShape2D_x18oi")
-
-[node name="King" parent="." instance=ExtResource("5_pwto8")]
-position = Vector2(49, 136)
-collision_mask = 2
 
 [node name="SpawnPoint" type="Marker2D" parent="."]
 position = Vector2(38, 116)
@@ -624,6 +623,9 @@ position = Vector2(324, 137)
 
 [node name="Bomb_Goblin3" parent="." instance=ExtResource("6_8iyfu")]
 position = Vector2(228, 138)
+
+[node name="King" parent="." instance=ExtResource("5_pwto8")]
+position = Vector2(48, 140)
 
 [connection signal="body_entered" from="Door/Area2D" to="." method="_on_Area2D_body_entered"]
 [connection signal="body_entered" from="Door2/Area2D" to="." method="_on_Area2D_body_entered"]

@@ -1,6 +1,7 @@
-[gd_scene load_steps=32 format=3 uid="uid://d3mjjv7xqglsb"]
+[gd_scene load_steps=33 format=3 uid="uid://d3mjjv7xqglsb"]
 
 [ext_resource type="Texture2D" uid="uid://x7480td5sl73" path="res://Kings and Pigs/Sprites/04-Pig Throwing a Box/Picking Box (26x30).png" id="1_4ppho"]
+[ext_resource type="Script" path="res://goblin.gd" id="1_xi7ic"]
 [ext_resource type="Texture2D" uid="uid://uqm8xjaeelqo" path="res://Kings and Pigs/Sprites/04-Pig Throwing a Box/Run (26x30).png" id="2_8im1w"]
 [ext_resource type="Texture2D" uid="uid://c6hs60mt5knjh" path="res://Kings and Pigs/Sprites/04-Pig Throwing a Box/Throwing Box (26x30).png" id="3_ef7xj"]
 [ext_resource type="Texture2D" uid="uid://dxvpj0gwlkyyi" path="res://Kings and Pigs/Sprites/04-Pig Throwing a Box/Idle (26x30).png" id="4_eyp30"]
@@ -107,6 +108,11 @@ region = Rect2(208, 0, 26, 30)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_1ouuh"]
 animations = [{
+"frames": [],
+"loop": true,
+"name": &"Dead",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_denea")
@@ -205,12 +211,16 @@ animations = [{
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5joul"]
 
-[node name="Box_Goblin" type="CharacterBody2D"]
+[node name="Box_Goblin" type="CharacterBody2D" groups=["enemies"]]
+collision_mask = 2
+script = ExtResource("1_xi7ic")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_1ouuh")
-animation = &"Picking Box"
+animation = &"Dead"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 5)
 shape = SubResource("RectangleShape2D_5joul")
+
+[connection signal="died" from="." to="." method="hurt"]

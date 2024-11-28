@@ -1,9 +1,28 @@
-[gd_scene load_steps=32 format=3 uid="uid://dnodvfjkqh2df"]
+[gd_scene load_steps=42 format=3 uid="uid://dnodvfjkqh2df"]
 
+[ext_resource type="Script" path="res://goblin.gd" id="1_fat6g"]
 [ext_resource type="Texture2D" uid="uid://k5olkpxxbsx5" path="res://Kings and Pigs/Sprites/05-Pig Thowing a Bomb/Idle (26x26).png" id="1_tq0po"]
 [ext_resource type="Texture2D" uid="uid://cibrgiqufpnsd" path="res://Kings and Pigs/Sprites/05-Pig Thowing a Bomb/Picking Bomb (26x26).png" id="2_660gh"]
+[ext_resource type="Texture2D" uid="uid://vue64u2yo4ta" path="res://Kings and Pigs/Sprites/03-Pig/Dead (34x28).png" id="2_wkbc8"]
 [ext_resource type="Texture2D" uid="uid://dhouwbfcf0po5" path="res://Kings and Pigs/Sprites/05-Pig Thowing a Bomb/Run (26x26).png" id="3_au3ds"]
 [ext_resource type="Texture2D" uid="uid://cr211onw7pexc" path="res://Kings and Pigs/Sprites/05-Pig Thowing a Bomb/Throwing Boom (26x26).png" id="4_w4ye7"]
+[ext_resource type="Texture2D" uid="uid://nwjpsdjro6" path="res://Kings and Pigs/Sprites/03-Pig/Hit (34x28).png" id="7_ckxae"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_evypo"]
+atlas = ExtResource("2_wkbc8")
+region = Rect2(0, 0, 34, 28)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mxgu4"]
+atlas = ExtResource("2_wkbc8")
+region = Rect2(34, 0, 34, 28)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5wrbm"]
+atlas = ExtResource("2_wkbc8")
+region = Rect2(68, 0, 34, 28)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5fhwg"]
+atlas = ExtResource("2_wkbc8")
+region = Rect2(102, 0, 34, 28)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_sul7t"]
 atlas = ExtResource("1_tq0po")
@@ -105,8 +124,33 @@ region = Rect2(78, 0, 26, 26)
 atlas = ExtResource("4_w4ye7")
 region = Rect2(104, 0, 26, 26)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_bb70n"]
+atlas = ExtResource("7_ckxae")
+region = Rect2(0, 0, 34, 28)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bcgan"]
+atlas = ExtResource("7_ckxae")
+region = Rect2(34, 0, 34, 28)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_6e66p"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_evypo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mxgu4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5wrbm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5fhwg")
+}],
+"loop": true,
+"name": &"Dead",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_sul7t")
@@ -201,17 +245,42 @@ animations = [{
 "loop": true,
 "name": &"Throwing_Bomb",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bb70n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bcgan")
+}],
+"loop": true,
+"name": &"hurt",
+"speed": 5.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dqtf8"]
-size = Vector2(20, 18)
+size = Vector2(25, 19)
 
-[node name="Bomb_Goblin" type="CharacterBody2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_743ss"]
+
+[node name="Bomb_Goblin" type="CharacterBody2D" groups=["enemies"]]
+collision_mask = 2
+script = ExtResource("1_fat6g")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_6e66p")
-animation = &"Idle"
+animation = &"Dead"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-1, 4)
+position = Vector2(-1.5, 3.5)
 shape = SubResource("RectangleShape2D_dqtf8")
+
+[node name="Hurtbox" type="Area2D" parent="."]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
+position = Vector2(-2, 2)
+shape = SubResource("RectangleShape2D_743ss")
+
+[connection signal="died" from="." to="." method="_on_died"]
+[connection signal="area_entered" from="Hurtbox" to="." method="_on_area_entered"]

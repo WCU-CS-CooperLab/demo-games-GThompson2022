@@ -11,7 +11,6 @@ var score = 0 : set = set_score
 
 func _ready():
 	score = 0
-	$King.reset($SpawnPoint.position)
 	set_camera_limits()
 
 func set_camera_limits():

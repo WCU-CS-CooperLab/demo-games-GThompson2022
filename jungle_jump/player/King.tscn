@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=3 uid="uid://x2p41nb53snm"]
+[gd_scene load_steps=47 format=3 uid="uid://x2p41nb53snm"]
 
 [ext_resource type="Script" path="res://player/King.gd" id="1_ufnhr"]
 [ext_resource type="Texture2D" uid="uid://c5xcueer510k6" path="res://Kings and Pigs/Sprites/01-King Human/Dead (78x58).png" id="2_oxxn4"]
@@ -292,13 +292,16 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_n57ph"]
-size = Vector2(11, 26)
+size = Vector2(25, 26)
 
 [sub_resource type="Gradient" id="Gradient_ad3dv"]
 colors = PackedColorArray(1, 0.874624, 0.466843, 1, 1, 0.87451, 0.466667, 0)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fxack"]
+size = Vector2(52, 28)
+
 [node name="King" type="CharacterBody2D" groups=["player"]]
-position = Vector2(232, 187)
+position = Vector2(233, 189)
 collision_layer = 2
 collision_mask = 13
 floor_snap_length = 8.0
@@ -307,10 +310,10 @@ metadata/_edit_group_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_m0xco")
-animation = &"jump"
+animation = &"hit"
 
 [node name="CollisionShape2d" type="CollisionShape2D" parent="." groups=["player"]]
-position = Vector2(0.5, 0)
+position = Vector2(-6.5, 0)
 shape = SubResource("RectangleShape2D_n57ph")
 
 [node name="Camera2d" type="Camera2D" parent="."]
@@ -340,3 +343,14 @@ gravity = Vector2(2.08165e-12, 2.08165e-12)
 initial_velocity_max = 10.0
 scale_amount_max = 3.0
 color_ramp = SubResource("Gradient_ad3dv")
+
+[node name="AttackArea" type="Area2D" parent="."]
+position = Vector2(20, 0)
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea"]
+position = Vector2(-7, 0)
+shape = SubResource("RectangleShape2D_fxack")
+
+[connection signal="area_entered" from="AttackArea" to="." method="_on_attack_area_entered"]
+[connection signal="input_event" from="AttackArea" to="." method="_on_area_2d_input_event"]
