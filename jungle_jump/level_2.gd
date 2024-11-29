@@ -8,10 +8,16 @@ var score = 0 : set = set_score
 
 @onready var animation_player = $King/AnimatedSprite2D
 @onready var is_near_door = false  # Track if player is near the door
+@onready var message = $HUD/  # Assign to the `Message` Label node
 
 func _ready():
+	if not message:
+		print("Message node not found!")  # Debugging output
+		return
+	
 	score = 0
 	set_camera_limits()
+	show_message("Huh?!? The goblins invaded!")  # Display the initial message
 
 func set_camera_limits():
 	if not $King:
@@ -39,3 +45,10 @@ func _on_door_body_entered(body: Node2D) -> void:
 		$Door/AnimatedSprite2D.animation = "open"
 		await $Door/AnimatedSprite2D.animation_finished
 		get_tree().change_scene_to_packed(next_level_scene)
+
+func show_message(text: String):
+	if message:
+		message.text = text
+		message.show()  # Use `.show()` to make the Label visible
+		await get_tree().create_timer(3.0).timeout  # Wait for 3 seconds
+		message.hide()  # Use `.hide()` to make the Label invisible

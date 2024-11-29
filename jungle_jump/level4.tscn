@@ -1,10 +1,11 @@
-[gd_scene load_steps=18 format=4 uid="uid://k6bwulikjkjw"]
+[gd_scene load_steps=19 format=4 uid="uid://k6bwulikjkjw"]
 
 [ext_resource type="Script" path="res://level_2.gd" id="1_7ihpj"]
 [ext_resource type="Texture2D" uid="uid://b1s44gg2ak4t0" path="res://Kings and Pigs/Sprites/14-TileSets/Decorations (32x32).png" id="2_mr1ys"]
 [ext_resource type="Texture2D" uid="uid://cn6lwk2noftj8" path="res://Kings and Pigs/Sprites/14-TileSets/Terrain (32x32).png" id="3_ibet4"]
 [ext_resource type="Texture2D" uid="uid://cnm1udd1iuffm" path="res://Kings and Pigs/Sprites/11-Door/Idle.png" id="4_u65w0"]
 [ext_resource type="PackedScene" uid="uid://x2p41nb53snm" path="res://player/King.tscn" id="5_d2v8a"]
+[ext_resource type="PackedScene" uid="uid://cd38l65v0ad6l" path="res://ui/hud.tscn" id="6_84k1e"]
 [ext_resource type="PackedScene" uid="uid://dnodvfjkqh2df" path="res://bomb_goblin.tscn" id="6_rjf2s"]
 [ext_resource type="PackedScene" uid="uid://bclhut6yonlgc" path="res://goblin_king.tscn" id="7_kn20w"]
 [ext_resource type="Texture2D" uid="uid://cyww5oigbli0m" path="res://Kings and Pigs/Sprites/10-Cannon/Idle.png" id="8_5okbi"]
@@ -696,6 +697,13 @@ shape = SubResource("RectangleShape2D_x18oi")
 [node name="King" parent="." instance=ExtResource("5_d2v8a")]
 position = Vector2(49, 136)
 collision_mask = 2
+
+[node name="HUD" parent="King" instance=ExtResource("6_84k1e")]
+offset_left = -249.0
+offset_top = -134.0
+offset_right = 51.0
+offset_bottom = -37.0
+scale = Vector2(0.5, 0.5)
 
 [node name="SpawnPoint" type="Marker2D" parent="."]
 position = Vector2(38, 116)

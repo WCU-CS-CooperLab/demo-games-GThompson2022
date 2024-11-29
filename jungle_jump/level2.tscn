@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=4 uid="uid://3nksip7j18mb"]
+[gd_scene load_steps=24 format=4 uid="uid://3nksip7j18mb"]
 
 [ext_resource type="Texture2D" uid="uid://b1s44gg2ak4t0" path="res://Kings and Pigs/Sprites/14-TileSets/Decorations (32x32).png" id="1_hjaql"]
 [ext_resource type="Script" path="res://level_2.gd" id="1_uv1v4"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://x2p41nb53snm" path="res://player/King.tscn" id="5_08c4v"]
 [ext_resource type="Texture2D" uid="uid://bk5ug3hx2knu1" path="res://Kings and Pigs/Sprites/11-Door/Closiong (46x56).png" id="5_qp5o3"]
 [ext_resource type="Texture2D" uid="uid://d0rdkrj7ber3r" path="res://Kings and Pigs/Sprites/11-Door/Opening (46x56).png" id="6_y605p"]
+[ext_resource type="PackedScene" uid="uid://cd38l65v0ad6l" path="res://ui/hud.tscn" id="9_ih0ot"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_nw5j0"]
 texture = ExtResource("1_hjaql")
@@ -601,6 +602,13 @@ autoplay = "Idle"
 [node name="King" parent="." instance=ExtResource("5_08c4v")]
 position = Vector2(32, -10)
 collision_mask = 2
+
+[node name="HUD" parent="King" instance=ExtResource("9_ih0ot")]
+offset_left = -249.0
+offset_top = -134.0
+offset_right = 51.0
+offset_bottom = -37.0
+scale = Vector2(0.5, 0.5)
 
 [node name="SpawnPoint" type="Marker2D" parent="."]
 position = Vector2(33, -4)
