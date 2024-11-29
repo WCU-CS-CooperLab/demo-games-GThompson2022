@@ -6,6 +6,9 @@ var current_level = 0
 var game_scene = "res://main.tscn"
 var title_screen = "res://ui/title.tscn"
 
+
+
+
 func restart():
 	current_level = 0
 	get_tree().change_scene_to_file(title_screen)

@@ -1,11 +1,33 @@
-[gd_scene load_steps=3 format=3 uid="uid://cd38l65v0ad6l"]
+[gd_scene load_steps=5 format=3 uid="uid://cd38l65v0ad6l"]
 
 [ext_resource type="Script" path="res://ui/hud.gd" id="1_40a36"]
 [ext_resource type="Texture2D" uid="uid://tgmnul8ympk7" path="res://assets/heart.png" id="2_8p2pc"]
 
+[sub_resource type="FontFile" id="FontFile_n6273"]
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/52/0/ascent = 0.0
+cache/0/52/0/descent = 0.0
+cache/0/52/0/underline_position = 0.0
+cache/0/52/0/underline_thickness = 0.0
+cache/0/52/0/scale = 1.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_03yt4"]
+font = SubResource("FontFile_n6273")
+font_size = 52
+font_color = Color(0.835294, 0.94902, 0.956863, 1)
+outline_size = 3
+outline_color = Color(0, 0.419481, 0.86388, 1)
+shadow_size = 12
+shadow_color = Color(0.318726, 0.00125718, 0.592675, 0)
+
 [node name="HUD" type="MarginContainer"]
 anchors_preset = 10
 anchor_right = 1.0
+offset_bottom = 500.0
 grow_horizontal = 2
 theme_override_constants/margin_left = 50
 theme_override_constants/margin_top = 20
@@ -21,18 +43,29 @@ layout_mode = 2
 
 [node name="L1" type="TextureRect" parent="HBoxContainer/LifeCounter"]
 layout_mode = 2
+size_flags_vertical = 0
 texture = ExtResource("2_8p2pc")
 stretch_mode = 5
 
 [node name="L2" type="TextureRect" parent="HBoxContainer/LifeCounter"]
 layout_mode = 2
+size_flags_vertical = 0
 texture = ExtResource("2_8p2pc")
 stretch_mode = 5
 
 [node name="L3" type="TextureRect" parent="HBoxContainer/LifeCounter"]
 layout_mode = 2
+size_flags_vertical = 0
 texture = ExtResource("2_8p2pc")
 stretch_mode = 5
 
-[node name="Label" type="Label" parent="HBoxContainer"]
+[node name="Message" type="Label" parent="."]
 layout_mode = 2
+size_flags_vertical = 8
+label_settings = SubResource("LabelSettings_03yt4")
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

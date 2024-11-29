@@ -1,7 +1,6 @@
 [gd_scene load_steps=27 format=4 uid="uid://bon0nus2ro8rf"]
 
 [ext_resource type="Script" path="res://level_2.gd" id="1_kj5vy"]
-[ext_resource type="PackedScene" uid="uid://3nksip7j18mb" path="res://level2.tscn" id="2_pt4ne"]
 [ext_resource type="Texture2D" uid="uid://b1s44gg2ak4t0" path="res://Kings and Pigs/Sprites/14-TileSets/Decorations (32x32).png" id="3_es7hy"]
 [ext_resource type="Texture2D" uid="uid://cn6lwk2noftj8" path="res://Kings and Pigs/Sprites/14-TileSets/Terrain (32x32).png" id="4_ilgdr"]
 [ext_resource type="Texture2D" uid="uid://bk5ug3hx2knu1" path="res://Kings and Pigs/Sprites/11-Door/Closiong (46x56).png" id="5_6o3a7"]
@@ -1058,11 +1057,12 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pmcda"]
+size = Vector2(203, 77)
+
 [node name="Node2D" type="Node2D"]
 position = Vector2(208, 318)
 script = ExtResource("1_kj5vy")
-is_open = null
-next_level_scene = ExtResource("2_pt4ne")
 
 [node name="TileMapLayer5" type="TileMapLayer" parent="."]
 position = Vector2(0, 12)
@@ -1099,14 +1099,23 @@ position = Vector2(33, 140)
 collision_mask = 2
 
 [node name="HUD" parent="King" instance=ExtResource("9_gify2")]
-offset_left = -249.0
-offset_top = -134.0
-offset_right = 51.0
-offset_bottom = -37.0
+offset_left = -228.0
+offset_top = -127.0
+offset_right = 691.0
+offset_bottom = 383.0
 scale = Vector2(0.5, 0.5)
 
 [node name="SpawnPoint" type="Marker2D" parent="."]
 position = Vector2(33, -4)
 
+[node name="Entry_message" type="Area2D" parent="."]
+collision_layer = 10
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Entry_message"]
+position = Vector2(118.5, 116.5)
+shape = SubResource("RectangleShape2D_pmcda")
+
 [connection signal="body_entered" from="Door" to="." method="_on_door_body_entered"]
 [connection signal="body_exited" from="Door" to="." method="_on_door_body_exited"]
+[connection signal="body_entered" from="Entry_message" to="." method="_on_entry_message_body_entered"]

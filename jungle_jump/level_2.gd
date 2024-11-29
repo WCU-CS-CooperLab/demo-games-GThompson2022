@@ -8,16 +8,16 @@ var score = 0 : set = set_score
 
 @onready var animation_player = $King/AnimatedSprite2D
 @onready var is_near_door = false  # Track if player is near the door
-@onready var message = $HUD/  # Assign to the `Message` Label node
+@onready var hud = $King/HUD  # Reference HUD as a child of King
+@onready var tile_map = $TileMapLayer  # Reference the TileMap
 
 func _ready():
-	if not message:
-		print("Message node not found!")  # Debugging output
-		return
-	
+	print("Game ready, initializing...")
+
 	score = 0
 	set_camera_limits()
-	show_message("Huh?!? The goblins invaded!")  # Display the initial message
+
+
 
 func set_camera_limits():
 	if not $King:
@@ -29,10 +29,13 @@ func set_camera_limits():
 		print("Camera2D node is null!")
 		return
 
-	var map_size = $TileMapLayer.get_used_rect()
-	var cell_size = $TileMapLayer.tile_set.tile_size
-	camera.limit_left = (map_size.position.x - 5) * cell_size.x
-	camera.limit_right = (map_size.end.x + 5) * cell_size.x
+	if tile_map:
+		var map_size = tile_map.get_used_rect()
+		var cell_size = tile_map.tile_set.tile_size
+		camera.limit_left = (map_size.position.x - 5) * cell_size.x
+		camera.limit_right = (map_size.end.x + 5) * cell_size.x
+	else:
+		print("TileMapLayer not found!")
 
 func set_score(value):
 	score = value
@@ -42,13 +45,18 @@ func _on_door_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player"):
 		print("Player entered door area")  # Debugging
 		is_near_door = true
-		$Door/AnimatedSprite2D.animation = "open"
+		$Door/AnimatedSprite2D.play("open")
 		await $Door/AnimatedSprite2D.animation_finished
 		get_tree().change_scene_to_packed(next_level_scene)
 
-func show_message(text: String):
-	if message:
-		message.text = text
-		message.show()  # Use `.show()` to make the Label visible
-		await get_tree().create_timer(3.0).timeout  # Wait for 3 seconds
-		message.hide()  # Use `.hide()` to make the Label invisible
+
+func _on_finish_area_entered(area: Area2D) -> void:
+	hud.show_message("Ahhh Finally my Throne!")
+
+
+func _on_lvl_2_messge_body_entered(body: Node2D) -> void:
+	hud.show_message("I smell trouble ahed")
+
+
+func _on_entry_message_body_entered(body: Node2D) -> void:
+	hud.show_message("Huh?!? The goblins invaded!")

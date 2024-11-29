@@ -1,9 +1,10 @@
-[gd_scene load_steps=19 format=4 uid="uid://k6bwulikjkjw"]
+[gd_scene load_steps=16 format=4 uid="uid://k6bwulikjkjw"]
 
 [ext_resource type="Script" path="res://level_2.gd" id="1_7ihpj"]
 [ext_resource type="Texture2D" uid="uid://b1s44gg2ak4t0" path="res://Kings and Pigs/Sprites/14-TileSets/Decorations (32x32).png" id="2_mr1ys"]
 [ext_resource type="Texture2D" uid="uid://cn6lwk2noftj8" path="res://Kings and Pigs/Sprites/14-TileSets/Terrain (32x32).png" id="3_ibet4"]
 [ext_resource type="Texture2D" uid="uid://cnm1udd1iuffm" path="res://Kings and Pigs/Sprites/11-Door/Idle.png" id="4_u65w0"]
+[ext_resource type="Texture2D" uid="uid://dx05j50ivo5b4" path="res://23617748.png" id="5_4tc5h"]
 [ext_resource type="PackedScene" uid="uid://x2p41nb53snm" path="res://player/King.tscn" id="5_d2v8a"]
 [ext_resource type="PackedScene" uid="uid://cd38l65v0ad6l" path="res://ui/hud.tscn" id="6_84k1e"]
 [ext_resource type="PackedScene" uid="uid://dnodvfjkqh2df" path="res://bomb_goblin.tscn" id="6_rjf2s"]
@@ -601,61 +602,8 @@ physics_layer_0/collision_mask = 3
 sources/0 = SubResource("TileSetAtlasSource_nw5j0")
 sources/1 = SubResource("TileSetAtlasSource_ipnuv")
 
-[sub_resource type="Animation" id="Animation_43phk"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("../Door2:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
-}
-
-[sub_resource type="Animation" id="Animation_rye8f"]
-resource_name = "close"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("../Door2:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
-}
-
-[sub_resource type="Animation" id="Animation_g53kc"]
-resource_name = "open"
-length = 2.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("../Door2:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_ixi51"]
-_data = {
-"RESET": SubResource("Animation_43phk"),
-"close": SubResource("Animation_rye8f"),
-"open": SubResource("Animation_g53kc")
-}
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_x18oi"]
-size = Vector2(43, 58)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_iynwc"]
+size = Vector2(62, 46)
 
 [node name="Node2D" type="Node2D"]
 position = Vector2(236, 464)
@@ -681,49 +629,24 @@ tile_set = SubResource("TileSet_ahtjg")
 position = Vector2(40, 124)
 texture = ExtResource("4_u65w0")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Door"]
-root_node = NodePath("../..")
-libraries = {
-"": SubResource("AnimationLibrary_ixi51")
-}
-
-[node name="Area2D" type="Area2D" parent="Door"]
-position = Vector2(4, 0)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Door/Area2D"]
-position = Vector2(-4.5, 0)
-shape = SubResource("RectangleShape2D_x18oi")
+[node name="23617748" type="Sprite2D" parent="."]
+position = Vector2(1320, -23)
+scale = Vector2(0.06, 0.06)
+texture = ExtResource("5_4tc5h")
 
 [node name="King" parent="." instance=ExtResource("5_d2v8a")]
 position = Vector2(49, 136)
 collision_mask = 2
 
 [node name="HUD" parent="King" instance=ExtResource("6_84k1e")]
-offset_left = -249.0
-offset_top = -134.0
-offset_right = 51.0
-offset_bottom = -37.0
+offset_left = -228.0
+offset_top = -127.0
+offset_right = 691.0
+offset_bottom = 383.0
 scale = Vector2(0.5, 0.5)
 
 [node name="SpawnPoint" type="Marker2D" parent="."]
 position = Vector2(38, 116)
-
-[node name="Door2" type="Sprite2D" parent="."]
-position = Vector2(488, 124)
-texture = ExtResource("4_u65w0")
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Door2"]
-root_node = NodePath("../../Door")
-libraries = {
-"": SubResource("AnimationLibrary_ixi51")
-}
-
-[node name="Area2D" type="Area2D" parent="Door2"]
-position = Vector2(4, 0)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Door2/Area2D"]
-position = Vector2(-4.5, 0)
-shape = SubResource("RectangleShape2D_x18oi")
 
 [node name="Bomb_Goblin" parent="." instance=ExtResource("6_rjf2s")]
 position = Vector2(585, -7)
@@ -739,13 +662,20 @@ position = Vector2(1180, -28)
 scale = Vector2(3, 3)
 
 [node name="Idle" type="Sprite2D" parent="."]
-position = Vector2(1290, -15)
+position = Vector2(1257, -14)
 scale = Vector2(1.56818, 1.85714)
 texture = ExtResource("8_5okbi")
 
 [node name="CannonBall" type="Sprite2D" parent="."]
-position = Vector2(1272, -4)
+position = Vector2(1236, -5)
 texture = ExtResource("9_vmuxm")
 
-[connection signal="body_entered" from="Door/Area2D" to="." method="_on_Area2D_body_entered"]
-[connection signal="body_entered" from="Door2/Area2D" to="." method="_on_Area2D_body_entered"]
+[node name="Finish" type="Area2D" parent="."]
+collision_layer = 10
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Finish"]
+position = Vector2(1319, -16)
+shape = SubResource("RectangleShape2D_iynwc")
+
+[connection signal="area_entered" from="Finish" to="." method="_on_finish_area_entered"]

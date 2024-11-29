@@ -1,10 +1,9 @@
-[gd_scene load_steps=11 format=3 uid="uid://dfc4qk6t8nfbo"]
+[gd_scene load_steps=10 format=3 uid="uid://dfc4qk6t8nfbo"]
 
 [ext_resource type="Script" path="res://ui/title.gd" id="1_4hio6"]
 [ext_resource type="Texture2D" uid="uid://elfqj4ni4jxs" path="res://assets/environment/back.png" id="1_sq170"]
 [ext_resource type="Texture2D" uid="uid://c74m2qnljojh0" path="res://assets/environment/middle.png" id="2_40dno"]
 [ext_resource type="FontFile" uid="uid://buosaulgdl55e" path="res://assets/Kenney Thick.ttf" id="3_175md"]
-[ext_resource type="AudioStream" uid="uid://cc3xlhl6piq6u" path="res://assets/audio/Intro Theme.ogg" id="5_12xq0"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_wjyqb"]
 font = ExtResource("3_175md")
@@ -160,10 +159,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -360.0
-offset_top = -442.0
-offset_right = 476.0
-offset_bottom = -345.0
+offset_left = -388.0
+offset_top = -279.0
+offset_right = 448.0
+offset_bottom = -182.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "King's Throne"
@@ -188,7 +187,3 @@ libraries = {
 "": SubResource("AnimationLibrary_8euf7")
 }
 autoplay = "intro"
-
-[node name="Music" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("5_12xq0")
-autoplay = true

@@ -18,6 +18,7 @@ config/icon="res://player_icon.png"
 [autoload]
 
 GameState="*res://game_state.gd"
+MusicPlayer="*res://MusicPlayer.tscn"
 
 [display]
 

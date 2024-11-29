@@ -1,14 +1,16 @@
-[gd_scene load_steps=24 format=4 uid="uid://3nksip7j18mb"]
+[gd_scene load_steps=25 format=4 uid="uid://3nksip7j18mb"]
 
 [ext_resource type="Texture2D" uid="uid://b1s44gg2ak4t0" path="res://Kings and Pigs/Sprites/14-TileSets/Decorations (32x32).png" id="1_hjaql"]
 [ext_resource type="Script" path="res://level_2.gd" id="1_uv1v4"]
 [ext_resource type="Texture2D" uid="uid://cn6lwk2noftj8" path="res://Kings and Pigs/Sprites/14-TileSets/Terrain (32x32).png" id="2_f82lc"]
-[ext_resource type="PackedScene" uid="uid://bmneoajcm0o5o" path="res://level3.tscn" id="2_u41af"]
 [ext_resource type="Texture2D" uid="uid://cnm1udd1iuffm" path="res://Kings and Pigs/Sprites/11-Door/Idle.png" id="4_1kru3"]
 [ext_resource type="PackedScene" uid="uid://x2p41nb53snm" path="res://player/King.tscn" id="5_08c4v"]
 [ext_resource type="Texture2D" uid="uid://bk5ug3hx2knu1" path="res://Kings and Pigs/Sprites/11-Door/Closiong (46x56).png" id="5_qp5o3"]
 [ext_resource type="Texture2D" uid="uid://d0rdkrj7ber3r" path="res://Kings and Pigs/Sprites/11-Door/Opening (46x56).png" id="6_y605p"]
 [ext_resource type="PackedScene" uid="uid://cd38l65v0ad6l" path="res://ui/hud.tscn" id="9_ih0ot"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jomkf"]
+size = Vector2(118, 124)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_nw5j0"]
 texture = ExtResource("1_hjaql")
@@ -564,10 +566,62 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_twntl"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3r6ok")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5hb6g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kdc38")
+}],
+"loop": true,
+"name": &"Close",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nexrh")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pdapc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jktxo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tua5v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xpq5r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o3bqo")
+}],
+"loop": false,
+"name": &"open",
+"speed": 5.0
+}]
+
 [node name="Node2D" type="Node2D"]
-position = Vector2(62, 185)
+position = Vector2(218, 238)
 script = ExtResource("1_uv1v4")
-next_level_scene = ExtResource("2_u41af")
+
+[node name="lvl2Messge" type="Area2D" parent="."]
+collision_layer = 10
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="lvl2Messge"]
+position = Vector2(165, -58)
+shape = SubResource("RectangleShape2D_jomkf")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 position = Vector2(0, 6)
@@ -599,19 +653,31 @@ sprite_frames = SubResource("SpriteFrames_f614q")
 animation = &"open"
 autoplay = "Idle"
 
+[node name="Door2" type="Area2D" parent="Door"]
+position = Vector2(-449, 50)
+collision_layer = 10
+collision_mask = 2
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Door/Door2"]
+position = Vector2(-7, -146)
+sprite_frames = SubResource("SpriteFrames_twntl")
+animation = &"open"
+autoplay = "Idle"
+
 [node name="King" parent="." instance=ExtResource("5_08c4v")]
 position = Vector2(32, -10)
 collision_mask = 2
 
 [node name="HUD" parent="King" instance=ExtResource("9_ih0ot")]
-offset_left = -249.0
-offset_top = -134.0
-offset_right = 51.0
-offset_bottom = -37.0
+offset_left = -228.0
+offset_top = -127.0
+offset_right = 691.0
+offset_bottom = 383.0
 scale = Vector2(0.5, 0.5)
 
 [node name="SpawnPoint" type="Marker2D" parent="."]
 position = Vector2(33, -4)
 
+[connection signal="body_entered" from="lvl2Messge" to="." method="_on_lvl_2_messge_body_entered"]
 [connection signal="body_entered" from="Door" to="." method="_on_door_body_entered"]
 [connection signal="body_exited" from="Door" to="." method="_on_door_body_exited"]

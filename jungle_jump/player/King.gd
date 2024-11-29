@@ -27,43 +27,9 @@ func _ready():
 
 func reset(_position):
 	position = _position
-	show()
+	show()  # Ensure player is visible when resetting
 	change_state(IDLE)
 	life = 3  # Reset life to 3 when restarting
-
-func _process(delta):
-	if Input.is_action_just_pressed("Attack"):
-		# Play the attack animation
-		$AnimatedSprite2D.play(attack_animation)
-
-		# Enable the attack area collision detection
-		attack_area_shape.disabled = false
-
-		# Wait for the attack animation to finish, then disable the AttackArea
-		await $AnimatedSprite2D.animation_finished
-		attack_area_shape.disabled = true  # Disable after attack
-
-# When the attack area enters a body, check for an enemy and deal damage
-func _on_attack_area_entered(area):
-	if area.is_in_group("enemies") and area.has_method("take_damage"):
-		area.take_damage()  # Call the enemy's take_damage method
-
-# Handle the player's hurt logic
-func hurt():
-	if invincible or state == HURT:
-		return
-	$HurtSound.play()  # Play hurt sound effect
-	change_state(HURT)
-
-	life -= 1
-	if life <= 0:
-		change_state(DEAD)  # Trigger death state when health reaches 0
-	else:
-		invincible = true
-		await get_tree().create_timer(1.0).timeout  # 1 second of invincibility
-		invincible = false
-
-	life_changed.emit(life)  # Emit life change signal to update HUD or UI
 
 # Input handling for player movement and jumping
 func get_input():
@@ -75,13 +41,23 @@ func get_input():
 	var jump = Input.is_action_just_pressed("jump")
 	var run = Input.is_action_pressed("Run")
 
-	velocity.x = 0
+	velocity.x = 0  # Reset horizontal velocity to handle movement input
+
 	if right:
 		velocity.x += run_speed if run else walk_speed
 		$AnimatedSprite2D.flip_h = false
 	if left:
 		velocity.x -= run_speed if run else walk_speed
 		$AnimatedSprite2D.flip_h = true
+
+	# Update state based on movement
+	if right or left:
+		if run:
+			change_state(RUN)  # Switch to running state if the player is running
+		else:
+			change_state(WALK)  # Switch to walking state if the player is walking
+	else:
+		change_state(IDLE)  # Switch to idle if no movement input
 
 	# Jumping
 	if jump and is_on_floor():
@@ -93,6 +69,10 @@ func get_input():
 		$AnimatedSprite2D.play("jump")
 		velocity.y = jump_speed / double_jump_factor
 		jump_count += 1
+
+	# Handle Attack
+	if Input.is_action_just_pressed("Attack") and state != HIT:  # Prevent attack if already in HIT state
+		change_state(HIT)  # Change to HIT state when attack is triggered
 
 # State handling for different actions like idle, walking, etc.
 func change_state(new_state):
@@ -109,9 +89,12 @@ func change_state(new_state):
 			jump_count = 1
 		HIT:
 			$AnimatedSprite2D.play("hit")
-			await get_tree().create_timer(0.2).timeout
-			if state == HIT:
-				change_state(IDLE)
+			# Handle the attack logic during hit state
+			attack_area_shape.disabled = false  # Enable attack area
+			# Wait for the hit animation to finish
+			await $AnimatedSprite2D.animation_finished
+			attack_area_shape.disabled = true  # Disable attack area after animation
+			change_state(IDLE)  # After hit animation finishes, go back to idle
 		HURT:
 			$AnimatedSprite2D.play("hurt")
 			velocity.y = -200
@@ -122,7 +105,9 @@ func change_state(new_state):
 		DEAD:
 			$AnimatedSprite2D.play("dead")
 			died.emit()  # Trigger death signal
-			hide()
+			hide()  # Hide the player sprite to indicate death
+			# Trigger level reset or restart here
+			_reset_level()
 
 # Physics process for movement and collisions
 func _physics_process(delta):    
@@ -130,21 +115,36 @@ func _physics_process(delta):
 	get_input()
 	move_and_slide()
 
-	if state == HURT:
-		return
-	
-	for i in get_slide_collision_count():
-		var collision = get_slide_collision(i)
-		if collision.get_collider().is_in_group("danger"):
-			hurt()
-		if collision.get_collider().is_in_group("enemies"):
-			if position.y < collision.get_collider().position.y:
-				collision.get_collider().take_damage()
-				velocity.y = -200
-			else:
-				hurt()
-
 	if state == JUMP and is_on_floor():
 		change_state(IDLE)
 		jump_count = 0
 		$Dust.emitting = true
+
+# When the attack area enters a body, check for an enemy and deal damage
+func _on_attack_area_entered(area):
+	if area.is_in_group("enemies") and area.has_method("take_damage"):
+		area.take_damage()  # Call the enemy's take_damage method
+
+
+func _on_hurt_box_body_entered(body):
+	if invincible or state == HURT:
+		return
+	
+	if body.is_in_group("enemies"):
+		$HurtSound.play()  # Play hurt sound effect
+		change_state(HURT)
+
+		life -= 1
+		if life <= 0:
+			change_state(DEAD)  # Trigger death state when health reaches 0
+		else:
+			invincible = true
+			await get_tree().create_timer(1.0).timeout  # 1 second of invincibility
+			invincible = false
+
+		life_changed.emit(life)  # Emit life change signal to update HUD or UI
+
+# Reset the level (you can adjust this based on your game logic)
+func _reset_level():
+	# Example of resetting the level by resetting the player's position and state
+	get_tree().reload_current_scene()  # Reload the current scene to restart the level
