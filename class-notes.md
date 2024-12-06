@@ -42,8 +42,8 @@ Week: 3 Notes - Space Rocks
 - Added shooting mechanics using a Bullet with Sprite2d, CollisionShape2d, with assets as well as the background.
 - Space Rocks I believe I messed up the Player Scene so I need to go back and change that, however the bullet scene and explosion scene seem to work well.
 -----------------------------------------------------------------------------------------------------------------------------
- Week: 4 Notes - Space Rocks pt. 2
-----------------------------------------------------------------------------------------------------------------------------
+Week: 4 Notes - Space Rocks pt.2
+-----------------------------------------------------------------------------------------------------------------------------
 - Finished up the explosions, and finished the player scene so it runs properly, had to restart the project on my own to figure that one out.
 - Explosions work out well now and doing all the other Quality of life stuff such as pausing the game, and the start screen.
 - I want to continue and finish up the game from the book.
@@ -60,7 +60,8 @@ Week: 6 Notes - Jungle Jump
 - Started Jungle Jump, immediately I was a little lost with project settings and animation player stuff. Finding the correct frames and animations and keyframing them was very difficult. I got about half but have to work on them at home to finalize them.
 - I am sick and cannot attend class, but did some work at home with the textbook, finished up making the collectible Items, as well as the animations.
 - Creating the first level with the tilemaps was confusing for sure, I am not very good at art, and doing this on my own would be difficult.
------------------------------------------------------------------------------------------------------------------------------Week: 7 Notes - Jungle Jump pt. 2
+-----------------------------------------------------------------------------------------------------------------------------
+Week: 7 Notes - Jungle Jump pt.2
 -----------------------------------------------------------------------------------------------------------------------------
 - Making the enemies was fun, I enjoyed making them actually able to move and collide with the player, I will definitely be using this for one of my projects, it has been pretty fun to create, but I have messed up a lot on random lines of script. It has been rewarding finishing up the game
 - The UI was not working very well, for some reason the container for the hearts was messing up and was off the screen.
