@@ -36,6 +36,7 @@ Week: 2 Notes Coin Dash pt.2
 -----------------------------------------------------------------------------------------------------------------------------
 - Learning the beginnings of UI and HUD scene logic in GODOT. Understanding how to manipulate scenes and instantiate children nodes from other scenes to play.
 - Finished CoinDash, but I am still reading the book to figure out how to add obstacles and sound effects to the game.
+- [FinalCoinDash](FinalCoinDash/index.html)
 -----------------------------------------------------------------------------------------------------------------------------
 Week: 3 Notes - Space Rocks
 -----------------------------------------------------------------------------------------------------------------------------
@@ -49,12 +50,14 @@ Week: 4 Notes - Space Rocks pt.2
 - Explosions work out well now and doing all the other Quality of life stuff such as pausing the game, and the start screen.
 - I want to continue and finish up the game from the book.
 - I got to the powerups on my own, but need to focus on 3D Mini Golf now.
+- [FinalSpaceRock](FinalSpaceRock/index.html)
 -----------------------------------------------------------------------------------------------------------------------------
 Week: 5 Notes - Mini Golf
 -----------------------------------------------------------------------------------------------------------------------------
 - Learning 3D games for the first time is very confusing. My laptop does not like it very much. Using Shift + f to free roam around really helps get the perspective you need.
 - Struggled making the first course, I either shrank the tiles, or was on a wrong tile layer, I need to restart this and work on it at home.
 - Making the Golf Ball, and Arrow made a lot of sense, struggled with some of the collision, understanding how to setup the tee and hole collision box was frustrating. Had to adjust the positioning ALOT!!
+- [FinalMinigolf](FinalMinigolf/index.html)
 -----------------------------------------------------------------------------------------------------------------------------
 Week: 6 Notes - Jungle Jump
 -----------------------------------------------------------------------------------------------------------------------------
@@ -66,12 +69,14 @@ Week: 7 Notes - Jungle Jump pt.2
 -----------------------------------------------------------------------------------------------------------------------------
 - Making the enemies was fun, I enjoyed making them actually able to move and collide with the player, I will definitely be using this for one of my projects, it has been pretty fun to create, but I have messed up a lot on random lines of script. It has been rewarding finishing up the game
 - The UI was not working very well, for some reason the container for the hearts was messing up and was off the screen.
+- [FinalJungleJump](FinalJungleJump/index.html)
 -----------------------------------------------------------------------------------------------------------------------------
 Week: 8 Notes - Infinite Flyer
 -----------------------------------------------------------------------------------------------------------------------------
 - Infinite flyer's instructions confused me a lot, the textbook has several mistakes, I think it must have been written for GODOT 3 and not the version that I have. I was struggling with the collision a lot. There were properties I could not find for the life of me.
 - Building the world was fine, however, not my favorite.
 - I am interested in finishing this project in my own time to finish up and implement powerups.
+- [Finalinfiniteflyer](Finalinfiniteflyer/index.html)
 -----------------------------------------------------------------------------------------------------------------------------
 Week: 9 - Team Project
 -----------------------------------------------------------------------------------------------------------------------------
