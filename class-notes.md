@@ -43,7 +43,7 @@ Week: 3 Notes - Space Rocks
 - Space Rocks I believe I messed up the Player Scene so I need to go back and change that, however the bullet scene and explosion scene seem to work well.
 -----------------------------------------------------------------------------------------------------------------------------
  Week: 4 Notes - Space Rocks pt. 2
- ----------------------------------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------------------------------
 - Finished up the explosions, and finished the player scene so it runs properly, had to restart the project on my own to figure that one out.
 - Explosions work out well now and doing all the other Quality of life stuff such as pausing the game, and the start screen.
 - I want to continue and finish up the game from the book.
