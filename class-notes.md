@@ -32,8 +32,9 @@ Week: 1 Notes Coin Dash
 - Learned how to export to the GitHub repository.
 - Understanding the Main Scenes.
 -----------------------------------------------------------------------------------------------------------------------------
-Week 2
------------------------------------------------------------------------------------------------------------------------------- Learning the beginnings of UI and HUD scene logic in GODOT. Understanding how to manipulate scenes and instantiate children nodes from other scenes to play.
+Week: 2 Notes Coin Dash pt.2
+-----------------------------------------------------------------------------------------------------------------------------
+- Learning the beginnings of UI and HUD scene logic in GODOT. Understanding how to manipulate scenes and instantiate children nodes from other scenes to play.
 - Finished CoinDash, but I am still reading the book to figure out how to add obstacles and sound effects to the game.
 -----------------------------------------------------------------------------------------------------------------------------
 Week: 3 Notes - Space Rocks
