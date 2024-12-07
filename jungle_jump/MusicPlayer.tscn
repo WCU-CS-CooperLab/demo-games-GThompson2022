@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://bfu4nfhpyn817"]
 
 [ext_resource type="Script" path="res://music_player.gd" id="1_egke2"]
-[ext_resource type="AudioStream" uid="uid://c3pkm06mttj4y" path="res://Horizons Abroad!.wav" id="2_4oisu"]
+[ext_resource type="AudioStream" uid="uid://c3pkm06mttj4y" path="res://Horizons_Abroad!.wav" id="2_4oisu"]
 
 [node name="MusicPlayer" type="Node2D"]
 script = ExtResource("1_egke2")
