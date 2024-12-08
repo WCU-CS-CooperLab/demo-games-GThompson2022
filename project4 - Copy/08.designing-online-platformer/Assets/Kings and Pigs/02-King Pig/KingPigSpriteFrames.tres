@@ -1,0 +1,132 @@
+[gd_resource type="SpriteFrames" load_steps=16 format=3 uid="uid://q6p1hal4oxix"]
+
+[ext_resource type="Texture2D" uid="uid://dkem4rmbmo6g7" path="res://Sprites/Gothicvania/Characters/Player/Monk/idle-monk.png" id="6_p0q26"]
+[ext_resource type="Texture2D" uid="uid://bu3mbon3x0evo" path="res://Sprites/Gothicvania/Characters/Player/Monk/jump-monk.png" id="7_21box"]
+[ext_resource type="Texture2D" uid="uid://rups6r4b1gcy" path="res://Sprites/Gothicvania/Characters/Player/Monk/walk-monk.png" id="8_xqpnj"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xv4sc"]
+atlas = ExtResource("6_p0q26")
+region = Rect2(0, 0, 82, 60)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_40l3r"]
+atlas = ExtResource("6_p0q26")
+region = Rect2(82, 0, 82, 60)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8r20y"]
+atlas = ExtResource("6_p0q26")
+region = Rect2(164, 0, 82, 60)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fua7m"]
+atlas = ExtResource("6_p0q26")
+region = Rect2(246, 0, 82, 60)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xhla8"]
+atlas = ExtResource("7_21box")
+region = Rect2(0, 0, 82, 60)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_splxm"]
+atlas = ExtResource("7_21box")
+region = Rect2(82, 0, 82, 60)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rvrfe"]
+atlas = ExtResource("8_xqpnj")
+region = Rect2(0, 0, 82, 60)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_shlha"]
+atlas = ExtResource("8_xqpnj")
+region = Rect2(82, 0, 82, 60)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gxonr"]
+atlas = ExtResource("8_xqpnj")
+region = Rect2(164, 0, 82, 60)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0w72i"]
+atlas = ExtResource("8_xqpnj")
+region = Rect2(246, 0, 82, 60)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iqdxp"]
+atlas = ExtResource("8_xqpnj")
+region = Rect2(328, 0, 82, 60)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_238i8"]
+atlas = ExtResource("8_xqpnj")
+region = Rect2(410, 0, 82, 60)
+
+[resource]
+animations = [{
+"frames": [],
+"loop": false,
+"name": &"attack",
+"speed": 10.0
+}, {
+"frames": [],
+"loop": false,
+"name": &"dead",
+"speed": 10.0
+}, {
+"frames": [],
+"loop": false,
+"name": &"fall",
+"speed": 10.0
+}, {
+"frames": [],
+"loop": false,
+"name": &"ground",
+"speed": 10.0
+}, {
+"frames": [],
+"loop": false,
+"name": &"hit",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xv4sc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_40l3r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8r20y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fua7m")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xhla8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_splxm")
+}],
+"loop": false,
+"name": &"jump",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rvrfe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_shlha")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gxonr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0w72i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iqdxp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_238i8")
+}],
+"loop": true,
+"name": &"run",
+"speed": 10.0
+}]
