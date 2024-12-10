@@ -21,5 +21,8 @@ A template repository to publish games
 1. [Project-3-Phase-1](Project-3-Phase-1_update/index.html)
 2. [Project-3-Phase-2](Project-3-Phase-2_update/index.html)
 
+## Project4
+1. [Project-4-Phase-1](Project-4-Phase-1/index.html)
+
 ## Group Project 1
 1. [Final_Project](Key_Quest/index.html)
