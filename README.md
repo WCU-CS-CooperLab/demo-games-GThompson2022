@@ -26,3 +26,6 @@ A template repository to publish games
 
 ## Group Project 1
 1. [Final_Project](Key_Quest/index.html)
+
+## Notes
+1. [Class_Notes](class-notes.md)
